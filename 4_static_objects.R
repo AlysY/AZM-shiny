@@ -11,8 +11,11 @@
 #
 # Script aim: Load static object, images and videos
 
+library(dplyr)
+
 # Objects 
-decades <- c("1982 - 1989" = 1989,
+decades <- c("All" = "All",
+             "1982 - 1989" = 1989,
              "1990 - 1999" = 1999,
              "2000 - 2009" = 2009,
              "2010 - 2021" = 2020)
