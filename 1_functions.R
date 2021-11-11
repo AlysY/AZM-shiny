@@ -11,6 +11,20 @@
 #
 # Script aim: Functions to support shiny app
 
+year_to_decade <- function(vect){
+  if(vect <= 1989){
+    d <- "1980s"
+  } else if(vect > 1989 && vect < 2000){
+    d <- "1990s"
+  } else if(vect > 1999 && vect < 2010){
+    d <- "2000s"
+  } else if(vect > 2009) {
+    d <- "2010s"
+  } else {
+    d <- NA
+  }
+}
+
 
 #' Change plain text/url for the social media share message
 #'
@@ -78,6 +92,53 @@ list_sp_by_category <- function(data){
 }
 
 
+list_sp_by_category2 <- function(data, grouping_category, name_in_list){
+  
+  # empty list that the options will end up in
+  sp_list_by_category <- c()
+  
+  # The unique groups
+  j <- data %>%
+    select(grouping_category) %>%
+    distinct() %>%
+    pull()
+  
+  #cats <- sort(gsub("_", " ", j))
+  
+  data2 <- data %>%
+    rename(gc =  grouping_category,
+           cn = name_in_list)
+  
+  
+  # For loop to create a list of the regions with the jurisdictions as the names
+  for(i in 1:length(j)){
+    
+    # the categories
+    sp_l <- data2 %>%
+      filter(gc == j[i]) %>%
+      select(cn) %>%
+      distinct() %>%
+      pull()
+      
+      
+    
+    # in case there is only 1 element in the list
+    if(length(sp_l) == 1) {
+      sp_l2 <-  c(sp_l, "-" = sp_l)
+    } else {
+      sp_l2 <- sp_l
+    }
+    sp_list <- list(sort(sp_l2))
+    names(sp_list) <- j[i]
+    
+    # save the list
+    sp_list_by_category <- c(sp_list_by_category, sp_list )
+  }
+  names(sp_list_by_category) <- gsub("_", " ", j)
+  
+  sp_list_by_category = sp_list_by_category[order(names(sp_list_by_category))]
+  return(sp_list_by_category)
+}
 
 #' Set the initial value of a shiny widget to be blank with a placeholder message
 #'

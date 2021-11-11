@@ -13,16 +13,16 @@
 
 # Contact -----------------------------------------------------------------------------------------------------------------------------------------------
 # Contact person's name
-contact_name <- "Prof Sarah Legge" 
-contact_email <- "sarahmarialegge@gmail.com"
+contact_name <- "Sarah Legge" 
+contact_email <- "AridZoneMonitoring@gmail.com"
 
-how_to_cite <- "Authors (date). Title. Journal, edition(volume), page."
+# how_to_cite <- "Authors (date). Title. Journal, edition(volume), page."
 
 # Social media -----------------------------------------------------------------------------------------------------------------------------------------------
 # Share to social media URL
 website_url_clean <- "https://www.nespthreatenedspecies.edu.au/projects/arid-zone-monitoring-surveys-for-vertebrates-across-arid-and-semi-arid-zones"
 
 # Share to social media message
-website_message_clean <- "Arid Zone monitoring project for threatned species"
+website_message_clean <- "Arid Zone Monitoring project for threatened species"
 
 
