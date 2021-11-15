@@ -54,20 +54,30 @@ AZM_palette <- list(
     `University` = "#FFAE07"),
   
   ## Data Providers
-  `Plots`    = c(
-    `1` = "#A03A0A", # Dark red for AZM boundary
-    `2` = "#014CA8", # Blue for detections
-    `3`   = "#7A7A7A") # black for non-detections
+  `Plots` = c(
+    `1`   = "#A03A0A", # Dark red for AZM boundary
+    `2`   = "#014CA8", # Blue for detections
+    `3`   = "#7A7A7A"), # black for non-detections
+  
+  ## Animal groups
+  `Groups`              = c(
+    `Mammal`            = "blue4",
+    `Bird`              = "slateblue", 
+    `Reptile`           = "green4", 
+    `Invertebrate`      = "darkorchid4", 
+    `Frog`              = "darkred",
+    `Introduced mammal` = "dodgerblue2",
+    `Selected`          = "yellow")
   
   # Other potentials:
   # Group of species - bird, mammal, reptile
   # Type of animal - invasive mammal, native mammal
 )
 
+
 # Change heat colour palette into a gradient
 pal_provider <- colorFactor(AZM_palette$Providers, domain = partners)
 pal_plot <- colorFactor(AZM_palette$Plots, domain = 1:3)
-
 
 
 # CSS ----------------------------------------------------------------------------------------------------------------------
@@ -120,14 +130,25 @@ l <- leaflet() %>%
               color = ~pal_plot(1))
 
 
-# Histogram when selecting a species --------------------------------------
+
+
+
+
+
+
+
+
+
+# Histogram by animal selected --------------------------------------
+
 
 df_result_sp <- df_P_nodate %>% 
   select(CommonName, Group_class) %>%
   mutate(invasive = ifelse(Group_class ==  "Introduced_mammal", 1, 0)) %>%
   group_by(CommonName) %>%
   summarise(n = n(),
-            invasive_mam = unique(invasive)) %>%
+            invasive_mam = unique(invasive),
+            Group_class = unique(Group_class)) %>%
   filter(n > 1) %>%
   arrange(invasive_mam, desc(n))
 
@@ -136,11 +157,24 @@ df_result_sp$CommonName <- factor(df_result_sp$CommonName, levels = rev(unique(d
 
 ## plot and then add later
 g_result_sp <- ggplot() +
-  #geom_bar(stat = "identity", aes(fill = ifelse(CommonName == input$result_sp, "Highlighted", "Normal")))  +
-  scale_fill_manual(name = "area", values = c("#7A7A7A", "#014CA8")) +
   coord_flip() +
-  theme(text = element_text(size = 15),
-        legend.position = "none")
+  scale_fill_manual(values = AZM_palette$Groups) +
+  theme(text = element_text(size = 12),
+        #legend.position = "none"
+  )
+
+
+
+
+# Histogram by place --------------------------------------
+
+g_result_place <- ggplot() +
+  labs(y = "Number of detections", x = "Animal", fill = "Type of animal") +
+  coord_flip() +
+  theme(text = element_text(size = 14))
+
+
+
 
 
 # Data by jurisdiction ----------------------------------------------------

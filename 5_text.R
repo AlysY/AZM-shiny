@@ -175,11 +175,11 @@ monitor_tip <- "How easily a sign is detected varies greatly between species and
 
 
 ## Data collection
-monitor_meth1 <- "•	2 ha plot - observers search a 2 ha area for signs of animal presence, ideally for a set period of time, or with a set period of effort. Sometimes called a sign survey, track survey, 2 hectare plot, cybertracker survey or Tracks App survey."
+monitor_meth1 <- "•	2 ha plot – observers search a 2 ha area for signs of animal presence, ideally for a set period of time, or with a set period of effort. Sometimes called a sign survey, track survey, 2 hectare plot, cybertracker survey or Tracks App survey."
 
 monitor_meth2 <- "•	Transect searches – a stretch of track is searched systematically."
 
-monitor_meth3 <- "•	Timed searches - trackers wander through an area in any direction for a set amount of time."
+monitor_meth3 <- "•	Timed searches – trackers wander through an area in any direction for a set amount of time."
 
 ## Looking for animal signs on the road/driving track:
 monitor_road1 <- "If the 2 ha plot is near a track, keep the search area off the track itself, by at least 30 m. This is because some animals (such as dingoes and foxes) prefer to use roads, and other animals avoid them. The sign along roads is a biased sample of what is present. To get a good sample of all animals present, set up a 100m transect along the track near to the 2 ha plot, and record the sign on this transect as well as the sign in the 2 ha plot. It is very important to keep the data from the plot and the road transect separate in your datasheet, so that biases can be taken into account during analysis."

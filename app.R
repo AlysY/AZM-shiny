@@ -5,7 +5,8 @@
 #
 # Author: Alys Young
 #
-# Collaborators: Sarah Legg, Naomi Indigo, Anja Skroblin, Darren Southwell
+# Collaborators: Sarah Legg, Naomi Indigo
+# Others involved in the wider project: Anja Skroblin, Tida Nou, Darren Southwell
 #
 # Date: Sept 2021
 #
@@ -105,10 +106,10 @@ ui <- fluidPage(
                                ),
                                
                                img(src = 'images/landscape/DX20164.jpg',  width = '100%', height = 'auto'),
-                               div(p("Image credit: ???"), style = "font-size: 15px;"),
+                               #div(p("Image credit: ???"), style = "font-size: 15px;"),
                                
                                img(src = 'images/landscape/DJI_0110 copy.jpg',  width = '100%', height = 'auto'),
-                               div(p("Image credit: ???"), style = "font-size: 15px;")
+                               #div(p("Image credit: ???"), style = "font-size: 15px;")
                                
                                ) 
                         
@@ -142,7 +143,6 @@ ui <- fluidPage(
                         column(9, 
                                
                                h3("Acknowledgements"),
-                               br(),
                                acknowledgements1
                                ),
                         column(3, 
@@ -387,19 +387,19 @@ ui <- fluidPage(
                                            h1(uiOutput("resultPlace_title")),
                                            uiOutput("resultPlace_subtitle"),
                                   fluidRow(
-                                    column(6, #helpText("Click on the map to select a place"),
+                                    column(6, 
                                            br(),
                                            leafletOutput("resultPlace", height = 600),
                                            br(),
+                                           h3(uiOutput("resultPlace_listtitle")),
                                            
-                                           h3(uiOutput("resultPlace_plottitle")),
-                                          
-                                           plotOutput("resultPlace_hist", height = 800)
+                                           DT::dataTableOutput("resultPlace_spList")
                                            ),
                                     column(6, 
-                                          h3(uiOutput("resultPlace_listtitle")),
-                                          
-                                           DT::dataTableOutput("resultPlace_spList")
+                                           
+                                           h3(uiOutput("resultPlace_plottitle")),
+                                           
+                                           plotOutput("resultPlace_hist", height = 900)
                                            )
                                     
                                   ),
@@ -582,14 +582,18 @@ ui <- fluidPage(
                                                                   column(6,
                                                                          uiOutput("animal_dectgif"),
                                                                          
-                                                                         fluidRow(
-                                                                           column(6, uiOutput("animal_dect1980")),
-                                                                           column(6, uiOutput("animal_dect1990"))
-                                                                         ),
-                                                                         fluidRow(
-                                                                           column(6, uiOutput("animal_dect2000")),
-                                                                           column(6, uiOutput("animal_dect2010"))
-                                                                         ),
+                                                                         # fluidRow(
+                                                                         #   column(6, uiOutput("animal_dect1980")),
+                                                                         #   column(6, uiOutput("animal_dect1990"))
+                                                                         # ),
+                                                                         # fluidRow(
+                                                                         #   column(6, uiOutput("animal_dect2000")),
+                                                                         #   column(6, uiOutput("animal_dect2010"))
+                                                                         # ),
+                                                                         uiOutput("animal_dect1980"),
+                                                                         uiOutput("animal_dect1990"),
+                                                                         uiOutput("animal_dect2000"),
+                                                                         uiOutput("animal_dect2010"),
                                                                          uiOutput("animal_detect_legend")
                                                                          ),
                                                                 )
@@ -683,7 +687,7 @@ ui <- fluidPage(
                                   #### 4.1 Designing track-based surveys  ----------------------------------------------------------------------------------------------------
                                   tabPanel(h3("Designing tracked-based surveys"),
                                            value = "monitor_method",
-                                           helpText(monitor_overview),
+                                           #helpText(monitor_overview),
                                            
                                            
                                            fluidRow(
@@ -692,6 +696,8 @@ ui <- fluidPage(
                                                     br(),
                                                     monitor_intro2,
                                                     br(),
+                                                    br(),
+                                                    h3("Monitoring objectives"),
                                                     monitor_intro3,
                                                     br(),
                                                     monitor_intro4
@@ -703,7 +709,7 @@ ui <- fluidPage(
                                            ),
                                            
                                            div(helpText(monitor_table), style = "text-align: center;"),
-                                           div(img(src = 'images/figures/MonitoringObjectives.jpg', width = '50%', height = 'auto'), style = "text-align: center;"),
+                                           div(img(src = 'images/figures/MonitoringObjectives.jpg', width = '60%', height = 'auto'), style = "text-align: center;"),
                                            
                                            
                                            fluidRow(
@@ -715,7 +721,7 @@ ui <- fluidPage(
                                              
                                              column(9,
                                                     h3("Overall rules of thumb for monitoring programs at local, regional and national scales"),
-                                                    br(),
+                                                    #br(),
                                                     monitor_rules1,
                                                     br(),
                                                     br(),
@@ -732,15 +738,16 @@ ui <- fluidPage(
                                            
                                            fluidRow(
                                              column(3, 
+                                                    br(),
                                                     img(src = 'images/landscape/Tracks_Credit Jaana Dielenberg.JPG', align = "right", width = '100%', height = 'auto'),
                                                     div(p("Image credit: Jaana Dielenberg"), style = "font-size: 15px;")),
                                              column(9,
                                                     h3("More information on this topic:"),
-                                                    p("For the description of monitoring design for track-based surveys, ", tags$a(href = "https://www.google.com", "click here")), # link to downloadable docs
-                                                    p("For the data collection sheet and instructions, ", tags$a(href = "https://www.google.com", "click here")), # link to downloadable docs
-                                                    p("For a detailed example of how to design a regional monitoring program, ", tags$a(href = "https://www.google.com", "click here")), # Darren's paper and national zonation
-                                                    p("For a detailed report on data collection methods, ", tags$a(href = "https://www.google.com", "click here")), # link Anja's report
-                                                    p("For a detailed analysis of features that affect detectability, ", tags$a(href = "https://www.google.com", "click here")), # link Anja's paper
+                                                    p("For the description of monitoring design for track-based surveys, ", tags$a(href = "https://www.google.com", "click here.")), # link to downloadable docs
+                                                    p("For the data collection sheet and instructions, ", tags$a(href = "https://www.google.com", "click here.")), # link to downloadable docs
+                                                    p("For a detailed example of how to design a regional monitoring program, ", tags$a(href = "https://www.google.com", "click here.")), # Darren's paper and national zonation
+                                                    p("For a detailed report on data collection methods, ", tags$a(href = "https://www.google.com", "click here.")), # link Anja's report
+                                                    p("For a detailed analysis of features that affect detectability, ", tags$a(href = "https://www.google.com", "click here.")), # link Anja's paper
                                                     
                                              )
                                            ),
@@ -768,7 +775,7 @@ ui <- fluidPage(
                                                     br(),
                                                     monitor_meth2,
                                                     br(),
-                                                    p(monitor_meth3, tags$a(href = "https://www.google.com", " E.g. click here")) # Link to Anja's paper
+                                                    p(monitor_meth3, tags$a(href = "https://www.google.com", " E.g. click here.")) # Link to Anja's paper
                                                     
                                                     
                                              )
@@ -777,18 +784,18 @@ ui <- fluidPage(
                                            fluidRow(
                                              column(8,
                                                     h3("Looking for animal signs on the road/driving track:"),
-                                                    br(),
+                                                    #br(),
                                                     monitor_road1,
                                                     br(),
                                                     
                                                     monitor_datacol1,
                                                     br(),
-                                                    
+                                                    br(),
                                                     h3("More information on this topic:"),
-                                                    p("To download the standard data recording sheet with instruction, ", tags$a(href = "https://www.google.com", "click here")), #Link to data collection template and instructions
-                                                    p("To read the full report that details tracking experts’ perspectives on data collection template, ", tags$a(href = "https://www.google.com", "click here")), # Anja's report?
-                                                    p("To read an example of a survey done used timed searches, ", tags$a(href = "https://doi.org/10.1111/cobi.13373", "click here")), # Anja's paper
-                                                    p("To download the preferred data entry templates to store your data, ", tags$a(href = "https://www.google.com", "click here")), # Link to data collection template and instructions
+                                                    p("To download the standard data recording sheet with instruction, ", tags$a(href = "https://www.google.com", "click here.")), #Link to data collection template and instructions
+                                                    p("To read the full report that details tracking experts’ perspectives on data collection template, ", tags$a(href = "https://www.google.com", "click here.")), # Anja's report?
+                                                    p("To read an example of a survey done used timed searches, ", tags$a(href = "https://doi.org/10.1111/cobi.13373", "click here.")), # Anja's paper
+                                                    p("To download the preferred data entry templates to store your data, ", tags$a(href = "https://www.google.com", "click here.")), # Link to data collection template and instructions
                                                     br(),
                                                     monitor_datacol2,
                                                     br(),
@@ -815,10 +822,10 @@ ui <- fluidPage(
                                            #          br(),
                                            #          
                                            #          h3("More information on this topic:"),
-                                           #          p("To download the standard data recording sheet with instruction, ", tags$a(href = "https://www.google.com", "click here")), #Link to data collection template and instructions
-                                           #          p("To read the full report that details tracking experts’ perspectives on data collection template, ", tags$a(href = "https://www.google.com", "click here")), # Anja's report?
-                                           #          p("To read an example of a survey done used timed searches, ", tags$a(href = "https://doi.org/10.1111/cobi.13373", "click here")), # Anja's paper
-                                           #          p("To download the preferred data entry templates to store your data, ", tags$a(href = "https://www.google.com", "click here")), # Link to data collection template and instructions
+                                           #          p("To download the standard data recording sheet with instruction, ", tags$a(href = "https://www.google.com", "click here.")), #Link to data collection template and instructions
+                                           #          p("To read the full report that details tracking experts’ perspectives on data collection template, ", tags$a(href = "https://www.google.com", "click here.")), # Anja's report?
+                                           #          p("To read an example of a survey done used timed searches, ", tags$a(href = "https://doi.org/10.1111/cobi.13373", "click here.")), # Anja's paper
+                                           #          p("To download the preferred data entry templates to store your data, ", tags$a(href = "https://www.google.com", "click here.")), # Link to data collection template and instructions
                                            #          br(),
                                            #          monitor_datacol2),
                                            #   column(4, 
@@ -840,7 +847,7 @@ ui <- fluidPage(
              ### 5. More information --------------------------------------------------------------------
              tabPanel("More Information", icon = icon("info"),
                       img(src = 'images/banner/IMG_1716.JPG', align = "left", width = '100%', height = 'auto'),
-                      div(p("Image credit: ???"), style = "font-size: 15px;"),
+                      #div(p("Image credit: ???"), style = "font-size: 15px;"),
                       
                       
                       
@@ -851,6 +858,7 @@ ui <- fluidPage(
                       p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
                       p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
                       
+                      br(),
                       
                       #### 5.1 Contact
                      
@@ -1106,24 +1114,10 @@ server <- function(input,output, session){
     t
     
   })
- 
   
   output$resultPlace_listtitle <- renderText({
     req(input$resultPlace_shape_click$id)
-
-      # data_filt <- dataprov %>%
-      #   filter(Provider_polygon == input$resultPlace_shape_click$id)
-      # 
-      # data_name <- data_filt %>%
-      #   select(Polygon_name) %>%
-      #   unique() %>%
-      #   pull()
-      # 
-      # data_collab <- AZM_provider$providers_list[AZM_provider$Polygon_name == data_name]
-      # 
-      # t <- paste0("List of animals found in ", data_name, " by ", data_collab)
-      # 
-      # t
+    
     t <- paste0("List of animals")
     
     t
@@ -1132,20 +1126,7 @@ server <- function(input,output, session){
 
   output$resultPlace_plottitle <- renderText({
     req(input$resultPlace_shape_click$id)
-# 
-#     data_filt <- dataprov %>%
-#       filter(Provider_polygon == input$resultPlace_shape_click$id)
-# 
-#     data_name <- data_filt %>%
-#       select(Polygon_name) %>%
-#       unique() %>%
-#       pull()
-# 
-#     data_collab <- AZM_provider$providers_list[AZM_provider$Polygon_name == data_name]
-# 
-#     t <- paste0("Number of detections for each animals found in ", data_name, " by ", data_collab)
-# 
-#     t
+
     t <- paste0("Number of detections of animals")
     
     t
@@ -1183,6 +1164,8 @@ server <- function(input,output, session){
 
   
   output$resultPlace_hist <- renderPlot({
+    
+    ## required inputs
     req(input$resultPlace_shape_click$id)
     
     data_filt <- dataprov %>%
@@ -1198,19 +1181,31 @@ server <- function(input,output, session){
       mutate(invasive = ifelse(Group_class ==  "Introduced_mammal", 1, 0)) %>%
       group_by(CommonName) %>%
       summarise(n = n(),
-                invasive_mam = unique(invasive)) %>%
+                invasive_mam = unique(invasive),
+                Group_class = unique(Group_class)) %>%
       arrange(invasive_mam, desc(n))
     
     df_PA2$CommonName <- factor(df_PA2$CommonName, levels = rev(unique(df_PA2$CommonName)))
+    df_PA2$Group_class[df_PA2$Group_class == "Introduced_mammal"] <- "Introduced mammal"
+    pal <- AZM_palette$Groups[unique(df_PA2$Group_class)]
     
-    
-    ggplot(data = df_PA2, aes(x = CommonName,
-                              y = n)) +
-      geom_bar(stat = "identity")  +
-      labs(y = "Number of detections", x = "Animal") +
-      coord_flip() +
-      theme(text = element_text(size = 20),
-            legend.position = "none")
+    g_result_place +
+      geom_bar(data     = df_PA2,
+               aes(x    = CommonName,
+                   y    = n,
+                   fill = Group_class),
+               stat     = "identity")  +
+      scale_fill_manual(values = pal)
+      
+    # ggplot() +
+    #   geom_bar(data = df_PA2, aes(x = CommonName,
+    #                               y = n,
+    #                               fill = Group_class),
+    #            stat = "identity")  +
+    #   labs(y = "Number of detections", x = "Animal", fill = "Type of animal") +
+    #   coord_flip() +
+    #   scale_fill_manual(values = pal) +
+    #   theme(text = element_text(size = 20))
     
   })
   
@@ -1306,37 +1301,20 @@ server <- function(input,output, session){
     req(input$result_sp)
     
     df  <- df_result_sp
-    # %>%
-    #   filter(invasive_mam == 0)
+    df$Group_class[df$CommonName == input$result_sp] <- "Selected"
+    df$Group_class[df$Group_class == "Introduced_mammal"] <- "Introduced mammal"
     
     g_result_sp +
       geom_bar(stat     = "identity",
                data     = df, 
                aes(x    = CommonName,
                    y    = n, 
-                   fill = ifelse(CommonName == input$result_sp,
-                                 "Normal",
-                                 "Highlighted"))) +
-      labs( y = "Number of detections in total", x = "Animals")
+                   fill = Group_class)) +
+      labs( y = "Number of detections in total", x = "Animals", fill = "Type of animal")
   })
+
   
-  # output$result_spinvasive_hist  <- renderPlot({
-  #   req(input$result_sp)
-  #   df  <- df_result_sp %>%
-  #     filter(invasive_mam == 1)
-  #   
-  #   
-  #   g_result_sp +
-  #     geom_bar(stat     = "identity",
-  #              data     = df, 
-  #              aes(x    = CommonName,
-  #                  y    = n, 
-  #                  fill = ifelse(CommonName == input$result_sp,
-  #                                "Normal",
-  #                                "Highlighted"))) +
-  #     labs( y = "Number of detections in total", x = "Invasive animal")
-  #   
-  # })
+  
   
   # 4. Specific species page ---------------------------------------------------------------------------------------------------------------------
   
@@ -1436,6 +1414,13 @@ server <- function(input,output, session){
   
   
   ### 4.3.2 Over time -------------------------------------------------------------------------------
+  ## HERE
+  
+  observeEvent(input$animal_species, {
+    f <- list.files(file.path("www",  RV$path_detect, "time"))
+    
+    RV$detection_plots <- ifelse(length(f) > 0, TRUE, FALSE)
+    })
   
   ## Animal specific text
   output$animal_detectionTime_text  <- renderUI({
@@ -1449,7 +1434,7 @@ server <- function(input,output, session){
     p <- file.path(RV$path_detect, "time", f)
     
     # Image
-    img(src = file.path(p), width = "50%")
+    img(src = file.path(p), width = "90%")
   })
   
   
@@ -1504,20 +1489,37 @@ server <- function(input,output, session){
   })
   
   
-  ## Legend
+  ## Legend HERE
   output$animal_detect_legend <- renderUI({
     # Required inputs
-    req(input$animal_species, RV$title)
+    req(input$animal_species, RV$title, RV$detection_plots)
     
     f <- list.files(file.path("www",  RV$path_detectlegend))[1]
     p <- file.path(RV$path_detectlegend, f)
     
     # Image
-    tags$img(src = file.path(p), width = "100%")
+    tags$img(src = file.path(p), width = "80%")
     
   })
   
   # 4.4 SDM -----------------------------------------------------------------------------------------------------------------
+  # ## Ideally have a show/hide depending if information is available, however it didnt work this way
+  # observeEvent(input$animal_species, {
+  #   f <- list.files(file.path("www",  RV$path_SDM), pattern = "jpg")
+  #   
+  #   RV$SDM_plots_T <- ifelse(length(f) > 0, TRUE, FALSE)
+  #   RV$SDM_plots_F <- ifelse(length(f) > 0, FALSE, TRUE)
+  # })
+  # 
+  # observeEvent(input$animal_species, {
+  #   req(RV$SDM_plots_T)
+  #   showTab(inputId = "tab_detect", target = "SDM")
+  # })
+  # 
+  # observeEvent(input$animal_species, {
+  #   req(RV$SDM_plots_F)
+  #   hideTab(inputId = "tab_detect", target = "SDM")
+  # })
   
   ## Animal specific text
   output$animal_SDM_text  <- renderUI({
@@ -1526,6 +1528,7 @@ server <- function(input,output, session){
   
   ## Plot/image
   output$animal_SDM <- renderUI({
+    
     # Files
     f <- list.files(file.path("www",  RV$path_SDM), pattern = "jpg")
     p <- file.path(RV$path_SDM, f)
@@ -1543,7 +1546,7 @@ server <- function(input,output, session){
     p <- file.path(RV$path_SDMlegend, f)
     
     # Image
-    tags$img(src = file.path(p), width = "80%")
+    tags$img(src = file.path(p), width = "100%")
 
   })
   
@@ -1596,9 +1599,9 @@ server <- function(input,output, session){
     files <- list.files(file.path("www",  RV$path_signs))
     
     # TO DO - turn this into a function
-    if (length(files) < 4) {
+    if (length(files) < 1) {
       tags$img(src = "blank.png", width = "100%")
-    } else if (length(files) == 4) {
+    } else {
       # Files
       f <- list.files(file.path("www",  RV$path_signs))[1]
       p <- file.path(RV$path_signs, f)
@@ -1619,9 +1622,9 @@ server <- function(input,output, session){
     files <- list.files(file.path("www",  RV$path_signs))
     
     # TO DO - turn this into a function
-    if (length(files) < 4) {
+    if (length(files) < 2) {
       tags$img(src = "blank.png", width = "100%")
-    } else if (length(files) == 4) {
+    } else {
       # Files
       f <- list.files(file.path("www",  RV$path_signs))[2]
       p <- file.path(RV$path_signs, f)
@@ -1642,9 +1645,9 @@ server <- function(input,output, session){
     files <- list.files(file.path("www",  RV$path_signs))
     
     # TO DO - turn this into a function
-    if (length(files) < 4) {
+    if (length(files) < 3) {
       tags$img(src = "blank.png", width = "100%")
-    } else if (length(files) == 4) {
+    } else {
       # Files
       f <- list.files(file.path("www",  RV$path_signs))[3]
       p <- file.path(RV$path_signs, f)
@@ -1662,7 +1665,7 @@ server <- function(input,output, session){
     # TO DO - turn this into a function
     if (length(files) < 4) {
       tags$img(src = "blank.png", width = "100%")
-    } else if (length(files) == 4) {
+    } else {
       # Files
       f <- list.files(file.path("www",  RV$path_signs))[4]
       p <- file.path(RV$path_signs, f)
@@ -1694,15 +1697,17 @@ server <- function(input,output, session){
     HTML(t3)
   })
   
+  
+  ## When the factsheets are uploaded, add the url to the species table
   output$factsheet_link_species <- renderUI({
 
     # t <- sp_data %>%
     #   filter(Common_name == input$animal_species) %>%
     #   select("Factsheet URL") %>%
     #   pull()
-
-    #t3 <- paste0("<p> To see the full factsheet for the ", t, "</p>")
-    t3 <- paste0("<p> To see the full fact sheet for ANIMAL, click here </p>")
+    t <- input$animal_species
+    t3 <- paste0("<p> To see the full factsheet for the ", t, "</p>")
+    
     HTML(t3)
   })
   
