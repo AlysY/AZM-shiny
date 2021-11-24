@@ -61,12 +61,12 @@ AZM_palette <- list(
   
   ## Animal groups
   `Groups`              = c(
-    `Mammal`            = "blue4",
-    `Bird`              = "slateblue", 
-    `Reptile`           = "green4", 
-    `Invertebrate`      = "darkorchid4", 
+    `Mammal`            = "dodgerblue2",
+    `Bird`              = "slateblue",
+    `Reptile`           = "green4",
+    `Invertebrate`      = "darkorchid4",
     `Frog`              = "darkred",
-    `Introduced mammal` = "dodgerblue2",
+    `Introduced mammal` = "blue4",
     `Selected`          = "yellow")
   
   # Other potentials:
@@ -81,10 +81,12 @@ pal_plot <- colorFactor(AZM_palette$Plots, domain = 1:3)
 
 
 # CSS ----------------------------------------------------------------------------------------------------------------------
+# font was 18px
+# line-height was 2
 
-css <- HTML("body {font-size: 18px;
+css <- HTML("body {font-size: 16px;
             color: #387469;
-            line-height: 2;}
+            line-height: 1.2;}
             
             a {color: #000000;}
             

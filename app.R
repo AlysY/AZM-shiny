@@ -14,26 +14,6 @@
 # Target audience: Land council, ranger groups, NGOs, Gov, NRM
 # Communication features: Plain language, images, symnols
 
-# Deploy app
-# if (!require(rsconnect)) install.packages('rsconnect')
-# rsconnect::deployApp(account = 'alysy')
-
-
-  # same image used on more info > acknowledgements, and how to monitor > data collection
-  # move 2nd image on designing trackbased surveys to lower
-  # more info reduce logos to 80%
-# publication list
-  # animals with more info
-  # add the rest of the species
-  # histogram of the number of animal detections
-  # SDM legend
-# select animals - list with names
-# logos from Sarah
-
-
-# need to leave space for the video
-
-
 
 
 ##***********##
@@ -42,7 +22,6 @@
 
 # rm(list=ls())
 
-
 ## Read in the other files
 # static objects must be after data and optional edits
 source("1_functions.R" )      
@@ -50,7 +29,8 @@ source("2_setup_and_data.R")
 source("3_optional_edits.R")
 source("4_objects_and_code.R")
 source("5_text.R")
-source("6_plots_and_aesthetics.R")     
+source("6_plots_and_aesthetics.R")
+
 
 
 ##*******************##
@@ -70,90 +50,88 @@ ui <- fluidPage(
              ### 1. Home page -------------------------------------------------------------------------------------------------------------
              tabPanel("Home",
                       icon = icon("home"),
-                      img(src = 'images/banner/P5200815_Naomi Indigo.JPG', align = "left", width = '100%', height = 'auto'),
+                      img(src = 'images/banner/P5200815_Naomi Indigo.jpg', align = "left", width = '100%', height = 'auto'),
                       div(p("Image credit: Naomi Indigo"), style = "font-size: 15px;"),
                       
-                      h1("Arid Zone Monitoring"),
-                     
+                      
+                      
                       #### 1.1 Background
                       fluidRow(
                         column(9, 
+                               h1("Arid Zone Monitoring"),
                                h3("What is the Arid Zone Monitoring project?"),
-                               p(intro_1.1),
+                               p(intro_1),
+                               fluidRow(
+                                 column(11, offset = 1,
+                                        intro_1.1,
+                                        br(),
+                                        intro_1.2,
+                                        br(),
+                                        intro_1.3,
+                                        br(),
+                                        intro_1.4,
+                                        br(),
+                                        intro_1.5
+                                 )
+                               ),
                                br(),
-                               #tags$iframe(width = "560", height = "315", src = "https://www.youtube.com/watch?v=e1ArcUncZCU", frameborder="0", allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen=NA),
-                               tags$iframe(width = "560", height = "300", src = "https://www.youtube.com/embed/e1ArcUncZCU", frameborder = "0", allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", allowfullscreen = NA),
-                               
-                               h3("Why do we need the Arid Zone Monitoring project?"),
-                               p(intro_1.2),
-                               br(),
-                               p(intro_1.3.1),
-                               br(),
-                               
-                               p(intro_1.3.2),
-                               br(),
-                               h3("What does the Arid Zone Monitoring project do?"),
-                               p(intro_1.4),
-                               br(),
+                               h3("Who is the Arid Zone Monitoring project?"),
+                               p(intro_2),
+                               br()
                         ),
+                        
                         column(3, 
-                               br(),
                                wellPanel( div(helpText(acknowledgement_of_Country), style = "font-size: 15px;"),
                                           br(),
                                           div(helpText(image_permission), style = "font-size: 15px;"),
                                           br(),
                                           div(em(helpText(cultural_advice)), style = "font-size: 15px;")
-                               ),
-                               
-                               img(src = 'images/landscape/DX20164.jpg',  width = '100%', height = 'auto'),
-                               #div(p("Image credit: ???"), style = "font-size: 15px;"),
-                               
-                               img(src = 'images/landscape/DJI_0110 copy.jpg',  width = '100%', height = 'auto'),
-                               #div(p("Image credit: ???"), style = "font-size: 15px;")
-                               
-                               ) 
+                               )
+                        )
                         
                       ), # close fluidrow
-                      br(),
+                      
                       
                       fluidRow(
+                        column(3,
+                               img(src = 'images/landscape/_DX20096 copy.jpg', align = "left", width = '100%', height = 'auto'),
+                               div(p("Image credit: Nicholas Rakotopare"), style = "font-size: 15px;")
+                               
+                        ),
+                        column(3,
+                               img(src = 'images/landscape/DJI_0110 copy.jpg', align = "left", width = '100%', height = 'auto')
+                               #div(p("Image credit: XXX"), style = "font-size: 15px;"),
+                        ),
+                        column(3,
+                               img(src = 'images/landscape/SANDPLOT_2.jpg', align = "left", width = '100%', height = 'auto'),
+                               div(p("Image credit: Nicholas Rakotopare"), style = "font-size: 15px;")
+                        ),
+                        column(3,
+                               img(src = 'images/landscape/Tracks_Credit Jaana Dielenberg copy.jpg', align = "right", width = '100%', height = 'auto'),
+                               div(p("Image credit: Jaana Dielenberg"), style = "font-size: 15px;")
+                        )
                         
-                        column(3, 
-                               img(src = 'images/portrait/Martu KJ Ranger points out Mankarr bilby sign_Credit KJ.jpg',  width = '100%', height = 'auto'),
-                               div(p("Image credit: KJ"), style = "font-size: 15px;"),
-                        ), 
-                        column(9, 
-                               
-                               ## aims:
-                               h3(intro_2),
-                               
-                               p(intro_2.1),
-                               p(intro_2.2),
-                               p(intro_2.3),
-                               p(intro_2.4),
-                               p(intro_2.5),
-                               br()
-                               
-                        )
-                      ), # close fluidrow
-                      
-                      br(),
-                      
-                      fluidRow(
-                        column(9, 
-                               
-                               h3("Acknowledgements"),
-                               acknowledgements1
-                               ),
-                        column(3, 
-                               
-                               img(src = 'images/landscape/Martu child Dakato pointing at Mankarr tracks and digging_CREDIT KJ copy.JPG', align = "right", width = '100%', height = 'auto'),
-                               div(p("Image credit: KJ"), style = "font-size: 15px;")
-                        )
+                        
                       ),
+                      h3("Why do we need the Arid Zone Monitoring project?"),
+                      p(intro_3.1),
+                      br(),
+                      p(intro_3.2),
+                      br(),
+                      p(intro_3.3),
+                      br(),
                       
+                      
+                      ## Video
+                      tags$iframe(width = "580", height = "360", src = "https://www.youtube.com/embed/e1ArcUncZCU", frameborder = "0", allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"), # allowfullscreen = NA ; fullscreen
+                      br(),
+                      
+                      ## acknowledgements
+                      h3("Acknowledgements"),
+                      p(acknowledgements1),
                       br(),
                       div(tags$img(src = "Logos_Extended.png", width = "90%"), style = "text-align: center;")
+                      
              ), # close tabpanel
              
              
@@ -168,7 +146,7 @@ ui <- fluidPage(
              ### 2. Survey sites  ---------------------------------------------------------------------------------------------------------
              tabPanel("What was surveyed?",
                       icon = icon("compass"),
-                      img(src = 'images/banner/P5200812_Naomi Indigo.JPG', align = "left", width = '100%', height = 'auto'),
+                      img(src = 'images/banner/P5200812_Naomi Indigo.jpg', align = "left", width = '100%', height = 'auto'),
                       div(p("Image credit: Naomi Indigo"), style = "font-size: 15px;"),
                       fluidRow(
                         column(7,survey_overview),
@@ -191,8 +169,8 @@ ui <- fluidPage(
                                   #### 2.1 Where -------------------------------------------------------------------------------------------
                                   
                                   tabPanel(h3("Where?"),
-                                          
-                                           h3(strong(survey_where_summary)), # div(helpText(), style = "font-size: 25px;"),
+                                           
+                                           h3(strong(HTML(survey_where_summary))),
                                            
                                            br(),
                                            #### Text
@@ -230,19 +208,21 @@ ui <- fluidPage(
                                              column(4, 
                                                     plotOutput("NumberOfSites",  width = '90%'),
                                                     #div(img(src = 'images/figures/Site_jurisdiction.jpg',  width = '60%', height = 'auto'), style = "text-align: center;"),
-                                                    div(helpText("Number of sites in the Arid Zone Monitoring National Dataset, by jurisdiction. A site is a 1 km2 location."), style = "text-align: center;")
+                                                    div(helpText(HTML(paste0("Number of sites in the Arid Zone Monitoring National Dataset, by jurisdiction. A site is a 1 km",tags$sup("2")," location."))), style = "text-align: center;")
+                                                    
                                              ),
                                              column(4,
                                                     
                                                     plotOutput("NumberOfSiteVisits",  width = '90%'),
                                                     #div(img(src = 'images/figures/SiteVisits_jurisdiction.jpg',  width = '60%', height = 'auto'), style = "text-align: center;"),
-                                                    div(helpText("Number of surveys in the Arid Zone Monitoring National Dataset, by jurisdiction. A survey is a visit to a 1 km2 site, on one date."), style = "text-align: center;")
+                                                    
+                                                    div(helpText(HTML(paste0("Number of surveys in the Arid Zone Monitoring National Dataset, by jurisdiction. A survey is a visit to a 1 km",tags$sup("2")," site, on one date."))), style = "text-align: center;")
                                                     
                                              ),
                                              column(4,
                                                     plotOutput("NumberOfSpeciesDetections",  width = '90%'), 
                                                     div(helpText("Number of species detections in the Arid Zone Monitoring National Dataset, by jurisdiction. This is sum of all the species that were observed during each survey."), style = "text-align: center;")
-                                           ) # close fluid row
+                                             ) # close fluid row
                                            )
                                            
                                   ), # close tabPanel
@@ -263,19 +243,43 @@ ui <- fluidPage(
                                                     br(),
                                                     survey_effort_2,
                                                     br(),
-                                                    survey_effort_3
-                                                    ),
+                                                    survey_effort_3,
+                                                    br(),
+                                                    div(img(src = 'images/figures/Number_Of_Records.jpg', width = '80%', height = 'auto'), style = "text-align: center;"),
+                                                    div(helpText(HTML(paste0("Summary of survey effort and animal detections in the Arid Zone Monitoring National Dataset. A site is a 1 km",tags$sup("2")," location, so the number of sites shows the number of unique 1 km",tags$sup("2")," locations that have been sampled. The number of surveys tells us how many discrete surveys have taken place. It is higher that than the number of sites, because the same site can be revisited over time. The number of species detections is the sum of all the species that were observed during each survey."))), style = "text-align: center;")
+                                                    
+                                             ),
                                              column(3, 
+                                                    br(),
                                                     br(),
                                                     img(src = 'images/portrait/Karajarri Ranger Jacko points out tracks_Credit Nicholas Rakotopare.jpg', align = "left", width = '100%', height = 'auto'),
                                                     div(p("Jacko Shovellor, Karajarri ranger. Image credit: Nicholas Rakotopare"), style = "font-size: 15px;")
-                                                    )
+                                             )
                                              
-                                            
+                                             
                                            ),
-                                           div(helpText("Summary of survey effort and animal detections in the Arid Zone Monitoring National Dataset. A site is a 1 km2 location, so the number of sites shows the number of unique 1 km2 locations that have been sampled. The number of surveys tells us how many discrete surveys have taken place. It is higher that than the number of sites, because the same site can be revisited over time. The number of species detections is the sum of all the species that were observed during each survey."), style = "text-align: center;"),
-                                           div(img(src = 'images/figures/Number_Of_Records.jpg', width = '80%', height = 'auto'), style = "text-align: center;"),
                                            br(),
+                                           
+                                           fluidRow(
+                                             column(3,
+                                                    img(src = 'images/landscape/P5200838_Naomi Indigo copy.jpg', align = "left", width = '100%', height = 'auto'),
+                                                    div(p("Image credit: Naomi Indigo"), style = "font-size: 15px;")
+                                             ),
+                                             column(3,
+                                                    img(src = 'images/landscape/Martu child Dakato pointing at Mankarr tracks and digging_CREDIT KJ copy.jpg', align = "left", width = '100%', height = 'auto'),
+                                                    div(p("Image credit: KJ"), style = "font-size: 15px;")
+                                             ),
+                                             column(3,
+                                                    
+                                                    img(src = 'images/landscape/DX20164.jpg', align = "left", width = '100%', height = 'auto'),
+                                                    div(p("Image credit: Nicholas Rakotopare"), style = "font-size: 15px;")
+                                                    
+                                             ),
+                                             column(3,
+                                                    img(src = 'images/landscape/P5200777_Naomi Indigo copy.jpg', align = "left", width = '100%', height = 'auto'),
+                                                    div(p("Image credit: Naomi Indigo"), style = "font-size: 15px;")
+                                             )
+                                           ),
                                            br()
                                            
                                   ), # close tabpanel
@@ -288,7 +292,8 @@ ui <- fluidPage(
                                            fluidRow(
                                              column(9, 
                                                     h3(strong(survey_when)),
-                                                    survey_when1,
+                                                    br(),
+                                                    survey_when1
                                              ),
                                              column(3, 
                                                     img(src = 'images/landscape/P5200793_Naomi Indigo.jpg', align = "right", width = '100%', height = 'auto'),
@@ -296,7 +301,6 @@ ui <- fluidPage(
                                              )
                                            ),
                                            
-                                          br(),
                                            fluidRow(
                                              column(3, 
                                                     wellPanel(
@@ -310,15 +314,16 @@ ui <- fluidPage(
                                                         value = 1980,
                                                         step = 10,
                                                         animate = animationOptions(interval = 2000, loop = TRUE)),
-                                                      div(helpText("To play an animation, click the play button ont the right of this box under 2010."), style = "font-size: 15px;")
+                                                      div(helpText("To play an animation, click the play button on the right of this box under 2010."), style = "font-size: 15px;")
                                                       
                                                     ) # close well panel
                                              ),
                                              column(9,
-                                                    leafletOutput("sur_map_decade_animate", height = 500),
-                                                    helpText("Location of sites in the Arid Zine Monitoring National Dataset by decade from 1980s. The number of unique sites sampled each decade is 1982-1989 = 87, 1990-1999 = 847, 2000-2009 = 3458, 2010-2021 = missing number. Forty-two records from 2020 are included in 2010-2020 survey count.")
+                                                    leafletOutput("sur_map_decade", height = 500),
+                                                    helpText("Location of sites in the Arid Zone Monitoring National Dataset by decade from 1980s. The number of unique sites sampled each decade is 1982-1989 = 87, 1990-1999 = 847, 2000-2009 = 3517, 2010-2021= 4387. Note that 418 records were submitted without date meta-data and thus were omitted. 42 records from 2020 are included in 2010-2020 survey count.")
                                              )
-                                           )
+                                           ),
+                                           br()
                                   ),
                                   
                                   #### 2.4 Who -------------------------------------------------------------------------------------------
@@ -327,14 +332,14 @@ ui <- fluidPage(
                                            fluidRow(
                                              column(9, 
                                                     h3(strong(survey_partner)),
+                                                    br(),
                                                     survey_partner1
-                                                    ),
+                                             ),
                                              column(3, 
                                                     img(src = 'images/landscape/IMG_5205_Tracks-game_SarahLegge.jpg', align = "right", width = '100%', height = 'auto'),
                                                     div(p("Umuwa, APY Lands, May 2021. Image credit: Sarah Legge"), style = "font-size: 15px;")
-                                                    )
+                                             )
                                            ),
-                                           br(),
                                            fluidRow(
                                              column(3, wellPanel(
                                                
@@ -351,22 +356,23 @@ ui <- fluidPage(
                                                                   selected = partners) 
                                              )),
                                              column(9, 
-                                                    leafletOutput("sur_map_decade", height = 500),
-                                                    helpText("Surveys in each decade, by the type of partner that collected and shared the data.")
+                                                    leafletOutput("sur_map_providers", height = 500),
+                                                    helpText("Location of sites in the AZM National Dataset by decade from 1980s. Forty-two records from 2020 are included in 2010-2020 site visit count. The number of unique sites sampled each decade is 1982-1989 = 87, 1990-1999 = 847, 2000-2009 = 3517, 2010-2021= 4387. Note that 418 records were submitted without date and were omitted from these maps.")
                                                     
-                                                    )
+                                             ) # close column
                                            ), # close FluidRow
                                            
                                            br(),
                                            br()
-                                  ) # close tabPanel
-                                  
-                                  
-                                  
-                                  
-                                 
+                                  ) # close tabPanel      
                       ) # Close tabset
              ), # close Tab panel
+             
+             
+             
+             
+             
+             
              
              
              ### 3. Results ---------------------------------------------------------------------------------------------------------
@@ -382,28 +388,28 @@ ui <- fluidPage(
                                   #### 3.1 Species list by place ------------------------------------------------------------------------------------------------
                                   
                                   tabPanel(h3("Search by a place"), value = "result_place",
-
+                                           
                                            
                                            h1(uiOutput("resultPlace_title")),
                                            uiOutput("resultPlace_subtitle"),
-                                  fluidRow(
-                                    column(6, 
-                                           br(),
-                                           leafletOutput("resultPlace", height = 600),
-                                           br(),
-                                           h3(uiOutput("resultPlace_listtitle")),
-                                           
-                                           DT::dataTableOutput("resultPlace_spList")
+                                           fluidRow(
+                                             column(6, 
+                                                    br(),
+                                                    leafletOutput("resultPlace", height = 600),
+                                                    br(),
+                                                    h3(uiOutput("resultPlace_listtitle")),
+                                                    
+                                                    DT::dataTableOutput("resultPlace_spList")
+                                             ),
+                                             column(6, 
+                                                    
+                                                    h3(uiOutput("resultPlace_plottitle")),
+                                                    
+                                                    plotOutput("resultPlace_hist", height = 850)
+                                             )
+                                             
                                            ),
-                                    column(6, 
-                                           
-                                           h3(uiOutput("resultPlace_plottitle")),
-                                           
-                                           plotOutput("resultPlace_hist", height = 900)
-                                           )
-                                    
-                                  ),
-                                  br()
+                                           br()
                                   ),
                                   
                                   #### 3.2 Animals records ------------------------------------------------------------------------------------------------
@@ -424,12 +430,12 @@ ui <- fluidPage(
                                                                      label = "Pick an animal",
                                                                      choices =  list_sp_all)
                                                     )
-                                                    ),
+                                             ),
                                              column(9,
                                                     h3(strong(animal_results_1)),
                                                     animal_results_2,
                                                     br(),
-                                                    animal_results_3,
+                                                    animal_results_3
                                              )
                                            ),
                                            br(),
@@ -445,83 +451,14 @@ ui <- fluidPage(
                                              
                                              column(6, 
                                                     br(),
-                                                    plotOutput("result_sphist", height = 1000), #860
-                                             ),
+                                                    plotOutput("result_sphist", height = 1000)
+                                             )
                                            )
                                            
                                            
                                            
                                   ), # close tab panel
                                   
-                                  
-                                  # #### 3.2 Animals records
-                                  # tabPanel(h3("Animal records"), value = "result_all",
-                                  #          #div(helpText(animal_results_1), style = "font-size: 25px;"),
-                                  #          #div(helpText(animal_results_2), style = "font-size: 25px;"),
-                                  #          
-                                  #          h3(strong(animal_results_1)),
-                                  #          animal_results_2,
-                                  #          
-                                  #          fluidRow(
-                                  #            column(3, 
-                                  #                   # br(),
-                                  #                   # br(),
-                                  #                   # br(),
-                                  #                   wellPanel(
-                                  #                     
-                                  #                     selectizeInput(inputId = "result_spgroup",
-                                  #                                    label = "Pick a group",
-                                  #                                    choices =  list_sp_types), 
-                                  #                     
-                                  #                     selectizeInput(inputId = "result_sp",
-                                  #                                    label = "Pick an animal",
-                                  #                                    choices =  list_sp_all)
-                                  #                     )
-                                  #                   #img(src = 'images/portrait/Karajarri Ranger Jacko points out X tracks_Credit Nicholas Rakotopare.jpg', align = "left", width = '100%', height = 'auto'),
-                                  #                   #div(p("Image credit: Nicholas Rakotopare"), style = "font-size: 15px;")
-                                  #            ),
-                                  #            column(9,
-                                  #                   h1(uiOutput("result_sp_map_title")),
-                                  #                   uiOutput("result_sp_map_subtitle"),
-                                  #                   leafletOutput("result_sp_map", height = 520)
-                                  #            )
-                                  #            ),
-                                  #          br(),
-                                  #          # fluidRow(
-                                  #          #   column(6, 
-                                  #          #          plotOutput("result_spnative_hist", height = 950), #860
-                                  #          #          ),
-                                  #          #   column(6, 
-                                  #          #          #div(animal_results_2, style = "font-size: 15px;"),
-                                  #          #          # div(animal_results_3, style = "font-size: 15px;")
-                                  #          #          animal_results_3
-                                  #          #          #div(animal_results_4, style = "font-size: 15px;"),
-                                  #          #          
-                                  #          #          #plotOutput("result_spinvasive_hist", height = 320),
-                                  #          #   )
-                                  #          #   
-                                  #          #   
-                                  #          # )
-                                  #          fluidRow(
-                                  #           
-                                  #            column(3, 
-                                  #                   #div(animal_results_2, style = "font-size: 15px;"),
-                                  #                   # div(animal_results_3, style = "font-size: 15px;")
-                                  #                   animal_results_3
-                                  #                   #div(animal_results_4, style = "font-size: 15px;"),
-                                  #                   
-                                  #                   #plotOutput("result_spinvasive_hist", height = 320),
-                                  #            ),
-                                  #            
-                                  #            column(9, 
-                                  #                   plotOutput("result_spnative_hist", height = 1000), #860
-                                  #            ),
-                                  #          )
-                                  # 
-                                  #          
-                                  # 
-                                  # ), # close tab panel
-                                  # 
                                   
                                   #### 3.3 Animals with more inforation ------------------------------------------------------------------------------------------------
                                   tabPanel(h3("Animal factsheets"), value = "animals",
@@ -566,9 +503,7 @@ ui <- fluidPage(
                                                                          uiOutput("animal_detectionRate_text")),
                                                                   column(6,
                                                                          uiOutput("animal_dect"))
-                                                                 ),
-                                                                # br(),
-                                                                # br(),
+                                                                ),
                                                                 
                                                                 fluidRow(
                                                                   column(6,
@@ -577,43 +512,17 @@ ui <- fluidPage(
                                                                          br(),
                                                                          br(),
                                                                          uiOutput("animal_detectionTime_text")
-                                                                         ),
+                                                                  ),
                                                                   
                                                                   column(6,
                                                                          uiOutput("animal_dectgif"),
-                                                                         
-                                                                         # fluidRow(
-                                                                         #   column(6, uiOutput("animal_dect1980")),
-                                                                         #   column(6, uiOutput("animal_dect1990"))
-                                                                         # ),
-                                                                         # fluidRow(
-                                                                         #   column(6, uiOutput("animal_dect2000")),
-                                                                         #   column(6, uiOutput("animal_dect2010"))
-                                                                         # ),
                                                                          uiOutput("animal_dect1980"),
                                                                          uiOutput("animal_dect1990"),
                                                                          uiOutput("animal_dect2000"),
                                                                          uiOutput("animal_dect2010"),
                                                                          uiOutput("animal_detect_legend")
-                                                                         ),
+                                                                  )
                                                                 )
-                                                                # h3("Detections over time:"),
-                                                                # detectionTime_1,
-                                                                # br(),
-                                                                # br(),
-                                                                # uiOutput("animal_detectionTime_text"),
-                                                                # column(12, uiOutput("animal_dectgif")),
-                                                                # br(),
-                                                                # br(),
-                                                                # fluidRow(
-                                                                #   column(4, uiOutput("animal_dect1980")),
-                                                                #   column(4, uiOutput("animal_dect1990"))
-                                                                # ),
-                                                                # fluidRow(
-                                                                #   column(4, uiOutput("animal_dect2000")),
-                                                                #   column(4, uiOutput("animal_dect2010"))
-                                                                # ),
-                                                                # fluidRow(column(6, uiOutput("animal_detect_legend")))
                                                        ),
                                                        
                                                        
@@ -633,8 +542,13 @@ ui <- fluidPage(
                                                                 ),
                                                                 wellPanel(
                                                                   div(p(SDM_2), style = "font-size: 15px;")
-                                                                  )
+                                                                )
                                                        ), # close tab panel
+                                                       
+                                                       
+                                                       
+                                                       
+                                                       
                                                        
                                                        ##### 3.3.4 Tracks and scats -----------------------------------------------------------
                                                        tabPanel(h3("Tracks, scat and signs"), value = "signs",
@@ -650,6 +564,12 @@ ui <- fluidPage(
                                                                 br()
                                                        ), # close tab panel
                                                        
+                                                       
+                                                       
+                                                       
+                                                       
+                                                       
+                                                       
                                                        ##### 3.3.5 Similar animals -----------------------------------------------------------
                                                        tabPanel(h3("Similar  animals"), value = "similar",
                                                                 
@@ -657,6 +577,12 @@ ui <- fluidPage(
                                                                 
                                                                 uiOutput("animal_similaranimals_img")
                                                        ), # close tab panel
+                                                       
+                                                       
+                                                       
+                                                       
+                                                       
+                                                       
                                                        
                                                        
                                                        ##### 3.3.6 More info -----------------------------------------------------------
@@ -668,19 +594,29 @@ ui <- fluidPage(
                                                        ) # close tab panel
                                            ), # close tabset
                                            br(),
-                                           uiOutput("how_to_cite_species")
+                                           br(),
+                                           uiOutput("how_to_cite_species"),
+                                           br(),
+                                           br()
                                            
-                                  )    
-                      )
+                                  ) # close tab panel    
+                      ) # close tab set
              ), # close tab
+             
+             
+             
+             
+             
+             
              
              
              
              ### 4. Monitoring -------------------------------------------------------------------------------------------------------------
              tabPanel("How to monitor?",
                       icon = icon("search"),
-                      img(src = 'images/banner/Ngururrpa Rangers look for tracks_Credit Jaana Dielenberg.JPG', align = "left", width = '100%', height = 'auto'),
-                      div(p("Image credit: Jaana Dielenberg"), style = "font-size: 15px;"),
+                      
+                      img(src = 'images/banner/Banner APY 2 ha plot tracking Anpuru-19_Ellen Ryan_Colton.jpg', align = "right", width = '100%', height = 'auto'),
+                      div(p("Image credit: Ellen Ryan-Colton"), style = "font-size: 15px;"),
                       
                       tabsetPanel(id = "tab_monitor",
                                   
@@ -694,18 +630,17 @@ ui <- fluidPage(
                                              column(9,
                                                     monitor_intro1,
                                                     br(),
+                                                    br(),
                                                     monitor_intro2,
                                                     br(),
                                                     br(),
                                                     h3("Monitoring objectives"),
                                                     monitor_intro3,
-                                                    br(),
-                                                    monitor_intro4
                                              ),
                                              column(3,
-                                                    img(src = 'images/landscape/Yukultji Napangati looking for tracks_Credit Jaana Dielenberg.JPG', align = "left", width = '100%', height = 'auto'),
+                                                    img(src = 'images/landscape/Yukultji Napangati looking for tracks_Credit Jaana Dielenberg.jpg', align = "left", width = '100%', height = 'auto'),
                                                     div(p("Image credit: Jaana Dielenberg"), style = "font-size: 15px;")
-                                                    )
+                                             )
                                            ),
                                            
                                            div(helpText(monitor_table), style = "text-align: center;"),
@@ -715,9 +650,9 @@ ui <- fluidPage(
                                            fluidRow(
                                              column(3,
                                                     br(),
-                                                    img(src = 'images/portrait/Martu kids Kaylene and Dakato learning Mankarr sign watched by Marita_CREDIT KJ.JPG', align = "right", width = '100%', height = 'auto'),
+                                                    img(src = 'images/portrait/Martu kids Kaylene and Dakato learning Mankarr sign watched by Marita_CREDIT KJ.jpg', align = "right", width = '100%', height = 'auto'),
                                                     div(p("Image credit: KJ"), style = "font-size: 15px;")
-                                                    ),
+                                             ),
                                              
                                              column(9,
                                                     h3("Overall rules of thumb for monitoring programs at local, regional and national scales"),
@@ -729,32 +664,23 @@ ui <- fluidPage(
                                                     monitor_rules2,
                                                     br(),
                                                     br(),
-                                                    em("For a regional or national monitoring program,"),
+                                                    em("For a regional monitoring program,"),
                                                     monitor_rules3,
                                                     br()
                                                     
-                                             )
-                                           ),
-                                           
-                                           fluidRow(
-                                             column(3, 
-                                                    br(),
-                                                    img(src = 'images/landscape/Tracks_Credit Jaana Dielenberg.JPG', align = "right", width = '100%', height = 'auto'),
-                                                    div(p("Image credit: Jaana Dielenberg"), style = "font-size: 15px;")),
-                                             column(9,
-                                                    h3("More information on this topic:"),
-                                                    p("For the description of monitoring design for track-based surveys, ", tags$a(href = "https://www.google.com", "click here.")), # link to downloadable docs
-                                                    p("For the data collection sheet and instructions, ", tags$a(href = "https://www.google.com", "click here.")), # link to downloadable docs
-                                                    p("For a detailed example of how to design a regional monitoring program, ", tags$a(href = "https://www.google.com", "click here.")), # Darren's paper and national zonation
-                                                    p("For a detailed report on data collection methods, ", tags$a(href = "https://www.google.com", "click here.")), # link Anja's report
-                                                    p("For a detailed analysis of features that affect detectability, ", tags$a(href = "https://www.google.com", "click here.")), # link Anja's paper
                                                     
                                              )
                                            ),
-                                                   #actionButton("monitor_design", h4("Design your own track-based survey")),
                                            br()
                                            
                                   ), # close tab panel
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
                                   
                                   
                                   #### 4.2 Data collection ----------------------------------------------------------------------------------------------------
@@ -763,78 +689,60 @@ ui <- fluidPage(
                                            
                                            fluidRow(
                                              
-                                             column(4, br(), 
+                                             column(3, br(),
                                                     img(src = 'images/landscape/Punmu Rangers Recording Data_CREDIT KJ.jpg', align = "right", width = '100%', height = 'auto'),
+                                                    div(p("Image credit: KJ"), style = "font-size: 15px;"),
+                                                    br(),
+                                                    img(src = 'images/landscape/Punmu Rangers and elders at an active Mankarr burrow _CREDIT KJ.jpg', align = "right", width = '100%', height = 'auto'),
                                                     div(p("Image credit: KJ"), style = "font-size: 15px;")
                                                     
                                              ),
-                                             column(8,
+                                             column(9,
                                                     h3("There are different ways of collecting track-based data:"),
                                                     br(),
-                                                    monitor_meth1,
-                                                    br(),
-                                                    monitor_meth2,
-                                                    br(),
-                                                    p(monitor_meth3, tags$a(href = "https://www.google.com", " E.g. click here.")) # Link to Anja's paper
+                                                    fluidRow(
+                                                      column(11, offset = 1,
+                                                             monitor_meth1,
+                                                             br(),
+                                                             monitor_meth2,
+                                                             br(),
+                                                             p(monitor_meth3, tags$a(href = "https://www.google.com", " E.g. click here.")), # Link to Anja's paper
+                                                             br()
+                                                      )
+                                                    ),# close fluid row
                                                     
                                                     
-                                             )
-                                           ),
-                                           
-                                           fluidRow(
-                                             column(8,
                                                     h3("Looking for animal signs on the road/driving track:"),
                                                     #br(),
                                                     monitor_road1,
                                                     br(),
+                                                    br(),
+                                                    monitor_datacol1
                                                     
-                                                    monitor_datacol1,
+                                             ) # close column
+                                           ), # close fluid row
+                                           
+                                           fluidRow(
+                                             column(6,
                                                     br(),
-                                                    br(),
-                                                    h3("More information on this topic:"),
+                                                    h3("More information on this topic: (links coming soon)"),
                                                     p("To download the standard data recording sheet with instruction, ", tags$a(href = "https://www.google.com", "click here.")), #Link to data collection template and instructions
                                                     p("To read the full report that details tracking experts’ perspectives on data collection template, ", tags$a(href = "https://www.google.com", "click here.")), # Anja's report?
                                                     p("To read an example of a survey done used timed searches, ", tags$a(href = "https://doi.org/10.1111/cobi.13373", "click here.")), # Anja's paper
                                                     p("To download the preferred data entry templates to store your data, ", tags$a(href = "https://www.google.com", "click here.")), # Link to data collection template and instructions
-                                                    br(),
-                                                    monitor_datacol2,
-                                                    br(),
+                                                    br()
                                                     
-                                                    img(src = 'images/banner/Banner APY 2 ha plot tracking Anpuru-19_Ellen Ryan_Colton.jpg', align = "right", width = '100%', height = 'auto'),
-                                                    div(p("Image credit: Ellen Ryan-Colton"), style = "font-size: 15px;")
-                                                    
-                                                    ),
-                                             column(4, br(), 
-                                                    img(src = 'images/landscape/Punmu Rangers and elders at an active Mankarr burrow _CREDIT KJ.jpg', align = "right", width = '100%', height = 'auto'),
-                                                    div(p("Image credit: KJ"), style = "font-size: 15px;"),
-                                                    br(),
+                                             ),
+                                             column(6,
                                                     wellPanel(
                                                       strong(helpText("Practical tips:")),
                                                       helpText(monitor_tip)
-                                                    )
+                                                    ) # close wellPanel
                                                     
-                                             )
-                                           )
-                                           # 
-                                           # fluidRow(
-                                           #   column(8, 
-                                           #          monitor_datacol1,
-                                           #          br(),
-                                           #          
-                                           #          h3("More information on this topic:"),
-                                           #          p("To download the standard data recording sheet with instruction, ", tags$a(href = "https://www.google.com", "click here.")), #Link to data collection template and instructions
-                                           #          p("To read the full report that details tracking experts’ perspectives on data collection template, ", tags$a(href = "https://www.google.com", "click here.")), # Anja's report?
-                                           #          p("To read an example of a survey done used timed searches, ", tags$a(href = "https://doi.org/10.1111/cobi.13373", "click here.")), # Anja's paper
-                                           #          p("To download the preferred data entry templates to store your data, ", tags$a(href = "https://www.google.com", "click here.")), # Link to data collection template and instructions
-                                           #          br(),
-                                           #          monitor_datacol2),
-                                           #   column(4, 
-                                           #          wellPanel(
-                                           #            strong(helpText("Practical tips:")),
-                                           #            helpText(monitor_tip)
-                                           #            )
-                                           #          )
-                                           # )
+                                             ) # close cloumn
+                                           ), # close fluid row
+                                           
+                                           monitor_datacol2
                                   ) # close tab panel
                                   
                                   
@@ -844,14 +752,18 @@ ui <- fluidPage(
              
              
              
+             
+             
+             
+             
              ### 5. More information --------------------------------------------------------------------
              tabPanel("More Information", icon = icon("info"),
-                      img(src = 'images/banner/IMG_1716.JPG', align = "left", width = '100%', height = 'auto'),
+                      img(src = 'images/banner/IMG_1716.jpg', align = "left", width = '100%', height = 'auto'),
                       #div(p("Image credit: ???"), style = "font-size: 15px;"),
                       
+                      br(),
                       
-                      
-                      #### 5.2 Publications
+                      #### 5.1 Publications
                       h3("Publications and reports"),
                       p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
                       p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
@@ -860,32 +772,28 @@ ui <- fluidPage(
                       
                       br(),
                       
-                      #### 5.1 Contact
-                     
-                      # fluidRow(
-                      #   column(8, h3("Contact us"),
-                      #          p(paste("For more information or enquiries, please contact", contact_name, "on", contact_email))
-                      #   ),
-                      #   
-                      #   column(4, img(src = 'images/landscape/KJ Surveying near salt lakes Punmu_CREDIT KJ.jpg', align = "right", width = '100%', height = 'auto'),
-                      #          div(p("Image credit: KJ"), style = "font-size: 15px;")
-                      #   )
-                      # ), # close fluidrow
+                      
+                      
+                      #### 5.2 Contact
                       h3("Contact us"),
                       p(paste("For more information or enquiries, please contact", contact_name, "on", contact_email)),
                       
-                      #### 5.4 Logos, Funding, Collaborators
+                      
+                      
+                      
+                      #### 5.3 Logos, Funding, Collaborators
                       
                       fluidRow(
-                        column(4,
+                        column(3,
                                br(),
-                               img(src = 'images/portrait/P5200833_Naomi Indigo.JPG', align = "right", width = '100%', height = 'auto'),
+                               img(src = 'images/portrait/P5200833_Naomi Indigo.jpg', align = "right", width = '100%', height = 'auto'),
                                div(p("Image credit: Naomi Indigo"), style = "font-size: 15px;")
-                               ),
-                        column(8,
+                        ),
+                        column(9,
                                
                                h3("Acknowledgements"),
                                acknowledgements1,
+                               br(),
                                br(),
                                acknowledgements2)
                       ), # close fluidrow
@@ -899,9 +807,6 @@ ui <- fluidPage(
                         
                         icon = icon("share-alt"),
                         
-                        # For other pages, use the format
-                        # tabPanel(tags$a(href = "the URL to the share page", icon("social media icon for the other page"), "Page name" )),
-
                         # Twitter
                         tabPanel(tags$a(href = paste0('https://twitter.com/intent/tweet?url=', website_url , ' &text=', website_message), icon("twitter"), "Twitter" )),
                         
@@ -927,24 +832,15 @@ ui <- fluidPage(
 
 server <- function(input,output, session){
   
-  # testing
-  output$how_to_cite_species  <- renderUI({
-    how_to_cite_species <- paste0("NESP Threatened Species Recovery Hub, 2021. Arid Zone Monitoring Species Profile: ", input$animal_species, ", Project 3.2.5 findings factsheet. ")
-    
-  })
-  
   
   # Data --------------------------------------------------------------------
+  # sur_df <- reactive({
+  #   
+  #   df_PA
+  # })
+  # 
   
-  
-  sur_df <- reactive({
-    
-    df_PA
-  })
-  
-
-# Plots -------------------------------------------------------------------
-
+  # Plots -------------------------------------------------------------------
   output$NumberOfSites <- renderPlot({
     Num1
   })
@@ -957,25 +853,18 @@ server <- function(input,output, session){
     Num3
   })
   
-  # Surveys -----------------------------------------------------------------
   
-
-  output$sur_map_decade_animate <- renderLeaflet({
+  
+  
+  # Surveys -----------------------------------------------------------------
+  output$sur_map_decade <- renderLeaflet({
     l 
-    # %>%
-    #   addLegend("bottomright", 
-    #             pal = pal_provider, 
-    #             values = partners,
-    #             title = "Survey partners",
-    #             opacity = 1,
-    #             labFormat = function(type, cuts, p) { 
-    #               paste0(partners) })
   })
   
   observeEvent(input$sur_year_slider, {
     p <- get(paste0("sf_decade_", input$sur_year_slider))
     
-    leafletProxy("sur_map_decade_animate") %>%
+    leafletProxy("sur_map_decade") %>%
       clearMarkers() %>%
       addCircleMarkers(data = p,
                        radius = 4,
@@ -989,8 +878,8 @@ server <- function(input,output, session){
   })
   
   
-  ## Map - by decade
-  output$sur_map_decade <- renderLeaflet({
+  ## Map - by providers and time
+  output$sur_map_providers <- renderLeaflet({
     
     #Required inputs
     req(input$sur_year)
@@ -1042,27 +931,13 @@ server <- function(input,output, session){
     }
   })
   
-
-# Results by place --------------------------------------------------------
-
+  
+  # Results by place --------------------------------------------------------
   output$resultPlace <- renderLeaflet({
-    
-    # l %>%
-    #   setView(lng = 132,  lat = -25, zoom = 4) %>%
-    #   addPolygons(data = AZM_provider,
-    #               opacity = 0.7,
-    #               layerId = ~AZM_provider$NAME,
-    #               color = "#1159CA",
-    #               label = AZM_provider$Polygon_name,
-    #               popup = AZM_provider$providers_list)
-    # 
-
-    
-
-    img = paste0("www/images/logos/", AZM_provider$Polygon_name,".jpg")
+    img <- paste0("www/images/logos/", AZM_provider$Polygon_name,".jpg")
     
     l %>%
-     setView(lng = 132,  lat = -25, zoom = 4) %>%
+      setView(lng = 132,  lat = -25, zoom = 5) %>%
       addPolygons(data = AZM_provider,
                   opacity = 0.7,
                   layerId = ~AZM_provider$NAME,
@@ -1072,24 +947,22 @@ server <- function(input,output, session){
       addPopupImages(img, group = "AZM_provider",
                      width = 300 # height has issues
       )
-
   })  
   
   
+  
   output$resultPlace_title <- renderText({
-    #req(input$resultPlace_shape_click$id)
-
     if (is.null(input$resultPlace_shape_click$id)){
       t  <- "Click on the map to select a place and see all the animals recorded there."
     } else {
-    data_filt <- dataprov %>%
-      filter(Provider_polygon == input$resultPlace_shape_click$id)
-    
-    data_name <- data_filt %>%
-      select(Polygon_name) %>%
-      unique() %>%
-      pull()
-
+      df_PA2 <- dataprov %>%
+        filter(AZM_Poly == input$resultPlace_shape_click$id)
+      
+      data_name <- df_PA2 %>%
+        select(Polygon_name) %>%
+        unique() %>%
+        pull()
+      
       t <- paste0("Animals found in ", data_name)
     }
     t
@@ -1099,15 +972,19 @@ server <- function(input,output, session){
   output$resultPlace_subtitle <- renderText({
     req(input$resultPlace_shape_click$id)
     
-    data_filt <- dataprov %>%
-      filter(Provider_polygon == input$resultPlace_shape_click$id)
     
-    data_name <- data_filt %>%
+    df_PA2 <- dataprov %>%
+      filter(AZM_Poly == input$resultPlace_shape_click$id)
+    
+    data_name <- df_PA2 %>%
       select(Polygon_name) %>%
       unique() %>%
       pull()
     
-    data_collab <- AZM_provider$providers_list[AZM_provider$Polygon_name == data_name]
+    data_collab <- df_PA2 %>%
+      select(providers_list) %>%
+      unique() %>%
+      pull()
     
     t <- paste0("The animals found in ", data_name, " by ", data_collab, ".")
     
@@ -1122,11 +999,11 @@ server <- function(input,output, session){
     
     t
   })
-
-
+  
+  
   output$resultPlace_plottitle <- renderText({
     req(input$resultPlace_shape_click$id)
-
+    
     t <- paste0("Number of detections of animals")
     
     t
@@ -1135,48 +1012,42 @@ server <- function(input,output, session){
   output$resultPlace_spList <- DT::renderDataTable({
     req(input$resultPlace_shape_click$id)
     
-    data_filt <- dataprov %>%
-      filter(Provider_polygon == input$resultPlace_shape_click$id)
+    df_PA2 <- dataprov %>%
+      filter(AZM_Poly == input$resultPlace_shape_click$id)
     
-    data_name <- data_filt %>%
+    data_name <- df_PA2 %>%
       select(Polygon_name) %>%
       unique() %>%
       pull()
     
     col_to_name <- paste0("Animals found in ", data_name)
     
-    data <- data_filt %>%
-      select(common.name) %>%
+    data <- df_PA2 %>%
+      select(CommonName) %>%
       unique() %>%
-      arrange(common.name) %>%
-      rename(!!purrr::set_names("common.name", col_to_name))
+      arrange(CommonName) %>%
+      rename(!!purrr::set_names("CommonName", col_to_name))
     
     dt <- DT::datatable(data       = data, 
                         rownames   = FALSE,
                         class      = 'cell-border hover compact',
                         extensions = c('Buttons'),
                         options    = list(scrollX = TRUE,
-                                        buttons   = c('copy', 'csv', 'excel', 'pdf', 'print'),
-                                        dom       = 'ltpB'))
+                                          pageLength = 25,
+                                          buttons   = c('copy', 'csv', 'excel', 'pdf', 'print'),
+                                          dom       = 'ltpB'))
     dt
-    })
-
-
+  })
+  
+  
   
   output$resultPlace_hist <- renderPlot({
     
     ## required inputs
     req(input$resultPlace_shape_click$id)
     
-    data_filt <- dataprov %>%
-      filter(Provider_polygon == input$resultPlace_shape_click$id)
-    
-    data_filt2 <- data_filt %>%
-      select(Data.Provider) %>%
-      distinct()
-    
-    df_PA2 <- df_PA %>%
-      filter(Data.Provider %in% data_filt2$Data.Provider) %>%
+    df_PA2 <- df_P_nodate %>%
+      filter(AZM_Poly == input$resultPlace_shape_click$id) %>%
       select(CommonName, Group_class) %>%
       mutate(invasive = ifelse(Group_class ==  "Introduced_mammal", 1, 0)) %>%
       group_by(CommonName) %>%
@@ -1185,6 +1056,10 @@ server <- function(input,output, session){
                 Group_class = unique(Group_class)) %>%
       arrange(invasive_mam, desc(n))
     
+    
+    
+    df_PA2$CommonName <- gsub("_", " ", df_PA2$CommonName)
+    df_PA2$CommonName <- gsub("\\.", " ", df_PA2$CommonName)
     df_PA2$CommonName <- factor(df_PA2$CommonName, levels = rev(unique(df_PA2$CommonName)))
     df_PA2$Group_class[df_PA2$Group_class == "Introduced_mammal"] <- "Introduced mammal"
     pal <- AZM_palette$Groups[unique(df_PA2$Group_class)]
@@ -1196,24 +1071,19 @@ server <- function(input,output, session){
                    fill = Group_class),
                stat     = "identity")  +
       scale_fill_manual(values = pal)
-      
-    # ggplot() +
-    #   geom_bar(data = df_PA2, aes(x = CommonName,
-    #                               y = n,
-    #                               fill = Group_class),
-    #            stat = "identity")  +
-    #   labs(y = "Number of detections", x = "Animal", fill = "Type of animal") +
-    #   coord_flip() +
-    #   scale_fill_manual(values = pal) +
-    #   theme(text = element_text(size = 20))
-    
   })
+  
+  
+  
+  
+  
+  
   
   # Results - detections  -----------------------------------------------------------------------------------
   
   # Update the list of antimicrobials
   observeEvent(input$result_spgroup, {
-
+    
     resulting_group <- input$result_spgroup
     
     if(input$result_spgroup == "Native mammal"){
@@ -1221,7 +1091,7 @@ server <- function(input,output, session){
     }
     
     # Data
-    data <- df_PA %>%
+    data <- df_P_nodate %>%
       filter(GroupClass == resulting_group) %>%
       select(CommonName) %>%
       distinct() %>%
@@ -1233,7 +1103,7 @@ server <- function(input,output, session){
                          inputId = "result_sp",
                          label = "Pick an animal",
                          choices = data)
-     
+    
     
   })
   
@@ -1256,7 +1126,7 @@ server <- function(input,output, session){
     req(input$result_sp)
     
     # clean the dataframe
-    df_animal <- df_PA %>% 
+    df_animal <- df_P_nodate %>% 
       dplyr::filter(CommonName == input$result_sp) %>%
       dplyr::select(Year, Decade, Long.cell, Lat.cell, CommonName, Scientific.name, GroupClass, Group) %>%
       distinct() # remove repeated locations
@@ -1312,7 +1182,9 @@ server <- function(input,output, session){
                    fill = Group_class)) +
       labs( y = "Number of detections in total", x = "Animals", fill = "Type of animal")
   })
-
+  
+  
+  
   
   
   
@@ -1322,6 +1194,10 @@ server <- function(input,output, session){
   animal_data <- reactive({
     data <- sp_data %>% filter(Common_name == input$animal_species)
   })
+  
+  
+  
+  
   
   
   ## 4.1 Reactive values ---------------------------------------------------------------------------------------------------------------------
@@ -1342,6 +1218,10 @@ server <- function(input,output, session){
     
     RV$gif <- (length(list.files(file.path("www",  RV$path_detect, "time"), pattern = "gif")) < 1)
   })
+  
+  
+  
+  
   
   
   ## 4.2 Top of page ---------------------------------------------------------------------------------------------------------------------
@@ -1390,9 +1270,6 @@ server <- function(input,output, session){
   
   ## 4.3 Detections ---------------------------------------------------------------------------------------------------------------------
   
-  
-  
-  
   ### 4.3.1 Over all -------------------------------------------------------------------------------
   
   ## Animal specific text
@@ -1414,13 +1291,12 @@ server <- function(input,output, session){
   
   
   ### 4.3.2 Over time -------------------------------------------------------------------------------
-  ## HERE
   
   observeEvent(input$animal_species, {
     f <- list.files(file.path("www",  RV$path_detect, "time"))
     
     RV$detection_plots <- ifelse(length(f) > 0, TRUE, FALSE)
-    })
+  })
   
   ## Animal specific text
   output$animal_detectionTime_text  <- renderUI({
@@ -1489,7 +1365,7 @@ server <- function(input,output, session){
   })
   
   
-  ## Legend HERE
+  ## Legend
   output$animal_detect_legend <- renderUI({
     # Required inputs
     req(input$animal_species, RV$title, RV$detection_plots)
@@ -1541,16 +1417,16 @@ server <- function(input,output, session){
   output$animal_SDM_legend <- renderUI({
     # Required inputs
     req(input$animal_species, RV$title)
-
+    
     f <- list.files(file.path("www",  RV$path_SDMlegend))
     p <- file.path(RV$path_SDMlegend, f)
     
     # Image
     tags$img(src = file.path(p), width = "100%")
-
+    
   })
   
-
+  
   # 4.5 Similar species ----------------------------------------------------------------------------------------------------------------------------------------
   
   ## Animal's name in language
@@ -1569,14 +1445,17 @@ server <- function(input,output, session){
     p <- file.path(RV$path_similarspecies, f)
     
     
-    # TO DO - turn this into a function
+    
     if (length(files) == 0 ) {
       tags$img(src = "blank.png", width = "20%")
     } else if (length(files) > 1) {
       tags$img(src = file.path(p), width = "50%")
     }
-
+    
   })
+  
+  
+  
   
   
   # 4.5 Signs (tracks and scats) ----------------------------------------------------------------------------------------------------------------------------------------
@@ -1587,18 +1466,10 @@ server <- function(input,output, session){
   })
   
   output$animal_img1  <- renderUI({
-    # # Files
-    # # listing the file needs to have the www folder
-    # f <- list.files(file.path("www",  RV$path_signs))[1]
-    # p <- file.path(RV$path_signs, f)
-    # 
-    # # Image
-    # # when printing the image, need to start at the species folder
-    # tags$img(src = file.path(p), width = "100%") #, height = "120")
-    
+    ## Files
     files <- list.files(file.path("www",  RV$path_signs))
     
-    # TO DO - turn this into a function
+    
     if (length(files) < 1) {
       tags$img(src = "blank.png", width = "100%")
     } else {
@@ -1612,16 +1483,9 @@ server <- function(input,output, session){
   })
   
   output$animal_img2 <- renderUI({
-    # # Files
-    # f <- list.files(file.path("www",  RV$path_signs))[2]
-    # p <- file.path(RV$path_signs, f)
-    # 
-    # # Image
-    # tags$img(src = file.path(p), width = "100%") #, height = "120")
-    
+    ## Files
     files <- list.files(file.path("www",  RV$path_signs))
     
-    # TO DO - turn this into a function
     if (length(files) < 2) {
       tags$img(src = "blank.png", width = "100%")
     } else {
@@ -1636,15 +1500,9 @@ server <- function(input,output, session){
   
   
   output$animal_img3 <- renderUI({
-    # # Files
-    # f <- list.files(file.path("www",  RV$path_signs))[3]
-    # p <- file.path(RV$path_signs, f)
-    # # Image
-    # tags$img(src = file.path(p), width = "100%")  #, height = "120")
-    
+    ## Files
     files <- list.files(file.path("www",  RV$path_signs))
     
-    # TO DO - turn this into a function
     if (length(files) < 3) {
       tags$img(src = "blank.png", width = "100%")
     } else {
@@ -1662,7 +1520,7 @@ server <- function(input,output, session){
   output$animal_img4 <- renderUI({
     files <- list.files(file.path("www",  RV$path_signs))
     
-    # TO DO - turn this into a function
+    
     if (length(files) < 4) {
       tags$img(src = "blank.png", width = "100%")
     } else {
@@ -1684,7 +1542,7 @@ server <- function(input,output, session){
   #   }
   # )
   
-
+  
   output$ALA_link_species <- renderUI({
     
     t <- sp_data %>%
@@ -1700,7 +1558,7 @@ server <- function(input,output, session){
   
   ## When the factsheets are uploaded, add the url to the species table
   output$factsheet_link_species <- renderUI({
-
+    
     # t <- sp_data %>%
     #   filter(Common_name == input$animal_species) %>%
     #   select("Factsheet URL") %>%

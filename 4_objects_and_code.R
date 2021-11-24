@@ -11,7 +11,7 @@
 #
 # Script aim: Load static object, images and videos
 
-library(dplyr)
+# library(dplyr)
 
 # Objects 
 decades <- c( #"All" = "All",
@@ -28,10 +28,9 @@ partners <- c("Government",
               "University")
 
 # lists of animals for the select input
-animal_dect_options <- sort(unique(df_PA$CommonName))
-# list_sp <- list_sp_by_category(sp_data) # OLD
+animal_dect_options <- sort(unique(df_P_nodate$common.name))
+list_sp_all <- list_sp_by_category2(data = df_P_nodate, grouping_category = "Group_class", name_in_list = "common.name")
 list_sp_factsheet <- list_sp_by_category2(data = sp_data, grouping_category = "category", name_in_list = "Common_name")
-list_sp_all <- list_sp_by_category2(data = df_PA, grouping_category = "Group_class", name_in_list = "CommonName")
 
 
 list_sp_types <- sort(unique(sp_data$category))
@@ -39,11 +38,12 @@ list_sp_types <- sort(unique(sp_data$category))
 
 
 # results_sp # <-  Presence absence dataset, common.name
-# unique(df_PA$common.name) # need to replace all . and _ with a space when loading in as the options
+# unique(df_P_nodate$common.name) # need to replace all . and _ with a space when loading in as the options
 
 # Social media
 website_url <- text_to_code(website_url_clean)
 website_message <- text_to_code(website_message_clean)
+
 
 
 

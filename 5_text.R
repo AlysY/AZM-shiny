@@ -30,47 +30,42 @@ cultural_advice <- "Aboriginal and Torres Strait Islander viewers are advised th
 
 acknowledgements1 <- "The project was funded by the Australian Government’s National Environmental Science Program through the Threatened Species Recovery Hub. The Arid Zone Monitoring Project distils the very large collective effort of many people – Traditional Owners, Indigenous rangers, university researchers, consultants, and government staff - who live and work in Australia’s deserts."
 
-acknowledgements2 <- "The data collation, analysis and reporting for the Arid Zone Monitoring Project was carried out by Naomi Indigo, Anja Skroblin, Darren Southwell, Tida Nou, Liam Grimmett, Taleah Watego, Steve Wilson, Mary Cryan, Jaana Dielenberg, Katherine Moseby, Rick Southgate, and Sarah Legge. The website was built by Alys Young. The project was guided by all the partners, too many to list here, but we would particularly like to acknowledge some individuals who have used, or advocated for, coordinated track-based monitoring for many years, and who provided valuable advice to the project. As well as Katherine and Rick, this includes Rachel Paltridge (Kiwirrkurra); Laurie Tait, Kim Webeck, Sam Rando and Thalie Paltridge (Central Land Council); Danae Moore (AWC); Joe Benshemesh (Maralinga); Dorian Moro (Wiluna Rangers); Martin Dziminski (WA DBCA); Chris Curnow (WA Rangelands); Peter See (10 Deserts, Country Needs People); Pete Copley, Cat Lynch and Dan Rogers (SA DENR); Rob Brandle (SAAL NRM Board). Many more people have made the project possible, by collecting and sharing data, supporting data collection by rangers, facilitating project communication, and by being sounding boards."
+acknowledgements2 <- "The data collation, analysis and reporting for the Arid Zone Monitoring Project was carried out by Naomi Indigo, Anja Skroblin, Darren Southwell, Tida Nou, Liam Grimmett, Taleah Watego, Steve Wilson, Mary Cryan, Jaana Dielenberg and Sarah Legge, with advice from Katherine Moseby and Rick Southgate. The website was built by Alys Young. The project was guided by all the partners, too many to list here, but we would particularly like to acknowledge some individuals who have used, or advocated for, coordinated track-based monitoring for many years, and who provided valuable advice to the project. As well as Katherine and Rick, this includes Rachel Paltridge (Kiwirrkurra); Laurie Tait, Kim Webeck, Sam Rando and Thalie Paltridge (Central Land Council); Danae Moore (AWC); Joe Benshemesh (Maralinga); Dorian Moro (Wiluna Rangers); Martin Dziminski (WA DBCA); Chris Curnow (WA Rangelands); Peter See (10 Deserts, Country Needs People); Pete Copley, Cat Lynch and Dan Rogers (SA DENR); Rob Brandle (SAAL NRM Board). Many more people have made the project possible, by collecting and sharing data, supporting data collection by rangers, facilitating project communication, and by being sounding boards."
 
 # What is the Arid Zone Monitoring project?
-intro_1.1 <- "The Arid Zone Monitoring project is a collaboration between the Australian Government National Environmental Science Program’s Threatened Species Recovery Hub and over 40 partners. The partners are Indigenous ranger groups and Indigenous organisations, NGOs and NRM groups, government agencies and institutions, and individual researchers and consultants."
+
+intro_1 <- 'The Arid Zone Monitoring project supports people and groups who are using track-based survey methods to monitor Australia’s desert fauna. The project aims to:'
+
+intro_1.1 <- "•	Gather existing track and sign data into a single dataset."
+
+intro_1.2 <- "•	Use this dataset could be used to map the distributions of desert species and look for trends in abundance over time."
+
+intro_1.3 <- "•	Provide guidance to support future sampling design and data collection."
+
+intro_1.4 <- "•	Showcase the work being carried out in the deserts, especially by Indigenous ranger groups."
+
+intro_1.5 <- "•	Lay the groundwork for creating ongoing, national-scale monitoring for desert wildlife."
+
+# Who is the AZM project?
+intro_2 <- 'The project is a collaboration between the Australian Government’s National Environmental Science Program (through the Threatened Species Recovery Hub) and over 40 partners. The partners are Indigenous ranger groups and Indigenous organisations, NGOs and NRM groups, government agencies and institutions, and individual researchers and consultants.'
 
 
 # Why do we need the Arid Zone Monitoring project?
-intro_1.2 <- "Monitoring animal populations in Australia’s sandy deserts is challenging. Many animal populations are at low density, have patchy distributions, and boom-bust population cycles, making it hard to understand patterns when working at single site, or for short periods of time."
+intro_3.1 <- "Monitoring animal populations in Australia’s sandy deserts is challenging. Many animal populations are at low density, have patchy distributions, and boom-bust population cycles, making it hard to understand patterns when working at single site, or for short periods of time."
 
-intro_1.3.1 <- "Many individuals and groups across Australia’s deserts have collected data using track-based methods (i.e. searching an area to record animal presence based on their tracks, scats, diggings, or other signs). Surveys have mainly been carried out to describe the species present in an area. Track-based surveys are also excellent opportunities for people to get out on Country, share skills and pass knowledge between generations."
+intro_3.2 <- "Many individuals and groups across Australia’s deserts have collected data using track-based methods (i.e. searching an area to record animal presence based on their tracks, scats, diggings, or other signs). Surveys have mainly been carried out to describe the species present in an area. Track-based surveys are also excellent opportunities for people to get out on Country, share skills and pass knowledge between generations. Some of the information from past track-based surveys had been collated, but most was still dispersed across the many groups that gathered the data, and therefore inaccessible for national-scale analyses."
 
-intro_1.3.2 <- "If the local-scale data collected by many independent groups were collated into a single dataset, the combined dataset could be used to describe species distributions and changes over time, across Australia’s deserts. Collaborative track-based monitoring could contribute to regional or national monitoring of native and feral species, improve our understanding of environmental processes, and allow us to monitor the outcome of fire and feral animal management, and other actions."
+intro_3.3 <- "If the local-scale data collected by many independent groups were collated into a single dataset, the combined dataset could be used to describe species distributions and changes over time, across Australia’s deserts. Collaborative track-based monitoring could contribute to regional or national monitoring of native and feral species, improve our understanding of environmental processes, and allow us to monitor the outcome of fire and feral animal management, and other actions."
 
 # What does the The Arid Zone Monitoring (AZM) project do?
-intro_1.4 <- "Some of the information from past track-based surveys had been collated, but most was still dispersed across the many groups that gathered the data, and therefore inaccessible for national-scale analyses. "
-
-
-# Aims
-intro_2 <- "The project works with desert groups to:"
-
-intro_2.1 <- "•	Gather existing track and sign data into a single dataset."
-
-intro_2.2 <- "•	Explore whether this dataset could be used to map the distributions of desert species and look for trends in abundance over time."
-
-intro_2.3 <- "•	Understand what guidance would support future sampling design and data collection."
-
-intro_2.4 <- "•	Showcase the work being carried out in the deserts, especially by Indigenous ranger groups."
-
-intro_2.5 <- "•	Lay the groundwork for creating ongoing, national-scale monitoring for desert wildlife."
-
-
-# intro_1.5 <- "The AZM national database includes almost 50,000 species presence records from over 5300 unique sites and almost 15,000 site visits, over the period from 1982 to 2021. The project showcases the collective work carried out by all groups working across the arid zone, and lays the groundwork for creating ongoing, national-scale monitoring for desert wildlife."
-
-# Tips
-# intro_3.1 <- "Use this website to see when and when the monitoring has happened and by which organisations. You can also look at specific species using the tabs at the top of the page."
+# intro_1.4 <- "Some of the information from past track-based surveys had been collated, but most was still dispersed across the many groups that gathered the data, and therefore inaccessible for national-scale analyses. "
+# Video
 
 # Surveys  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 survey_overview <- "This section summarises key descriptive statistics from the National Dataset. For full details on how data were gathered, cleaned and processed, download the Arid Zone Monitoring Project National Data Collation report." #the National Data Collation Report. 
 
 # Where did the surveys happen?
-survey_where_summary <- "The Arid Zone Monitoring project covers 3,273,140 km2 of Australia’s arid and semi-arid regions. This area is looked after by Traditional Owners and Indigenous Rangers, NGOs, and government agencies. Many of these groups, as well as independent ecologists and consultants, have carried out wildlife surveys by searching for tracks, scats and diggings using standardised methods."
+survey_where_summary <- paste0("The Arid Zone Monitoring project covers 3,273,140 km",tags$sup("2")," of Australia’s arid and semi-arid regions. This area is looked after by Traditional Owners and Indigenous Rangers, NGOs, and government agencies. Many of these groups, as well as independent ecologists and consultants, have carried out wildlife surveys by searching for tracks, scats and diggings using standardised methods.")
 
 # Defining the project area
 survey_area <- "The project area includes all of Australia’s sandy desert bioregions, with an extension in the northwest to include the Pindanland subregion (Dampierland bioregion), and another extension into the Gascoyne and Pilbara bioregions. Defining the project boundary is necessary for setting the ‘environmental envelope’ used in distribution modelling."
@@ -87,9 +82,9 @@ survey_dataset <- "The Arid Zone Monitoring National Dataset is a collation of 6
 
 ## What - the data. survey effort
 
-survey_effort <- "Overall, the project partners detected almost 50,000 species records, from almost 15,000 surveys, carried out at over 5300 unique sites across the desert."
+survey_effort <- "Overall, the project partners detected almost 50,000 species records, from almost 15,000 surveys, carried out at over 5,300 unique sites across the desert."
 
-survey_effort_1 <- "Records of animals were made using several different survey methods. The most common method was a 2 ha sand plot survey (sometimes called a sign survey, track survey, 2 hectaresand plot, cybertracker survey or Tracks App survey). In a 2 ha sand plot survey, observers search a 2 ha area for signs of animal presence and record information about the habitat or tracking conditions."
+survey_effort_1 <- "Records of animals were made using several different survey methods. The most common method was a 2 ha plot survey (sometimes called a sign survey, track survey, sand plot, cybertracker survey or Tracks App survey). In a 2 ha plot survey, observers search a 2 ha area for signs of animal presence and record information about the habitat or tracking conditions."
 
 survey_effort_2 <- "Transect surveys, where observers search for tracks along a linear path, were also common. Timed searches are when observers look for animal signs for a set length of time. This includes searches carried out on foot or by a slow-moving vehicle. Some records were ‘incidental’, where observers noticed and recorded the track, scat or digging, but they were not carrying out a formal survey."
 
@@ -155,9 +150,7 @@ monitor_intro1 <- "Track-based surveys are great for detecting species that live
 
 monitor_intro2 <- "The method also works best for larger-bodied animals with tracks that are easily identified, such as mulgara, goannas, bilby, cats, dingoes, and camels. If you want to monitor smaller animals, like small mice and dasyurids (e.g. dunnarts), small reptiles, and small birds, then there are better survey methods to use."
 
-monitor_intro3 <- "Like all surveys, track-based surveys need to be designed carefully to record data that are useful for answering the questions your team is interested in. It is best to get advice from an experienced ecologist to design your survey, but general guidelines are:"
-
-monitor_intro4 <- "Decide why you are monitoring early (this is called the monitoring objective). Knowing your monitoring objective affects decisions about where to survey, how many sites to survey, and how often to re-visit them."
+monitor_intro3 <- "Like all surveys, track-based surveys need to be designed carefully to record data that are useful for answering the questions your team is interested in. It is important you decide why you are monitoring early (this is called the monitoring objective). Knowing your monitoring objective affects decisions about where to survey, how many sites to survey, and how often to re-visit them. It is best to get advice from an experienced ecologist to design your survey, but general guidelines are:"
 
 monitor_table <- "The table below shows some examples of monitoring objectives and the different needs required for where to put sites, and whether you need to revisit them over time to achieve the monitoring objective:"
 

@@ -56,13 +56,20 @@ Longlat_crs <- st_crs("+proj=longlat +datum=WGS84")
 
 
 ## National PA dataset - cleaned
-df_P_nodate <- read.csv("www/data/AZM_NationalData_P_per1km.csv")
+# created in another script from the Presence only AZM data
+# The following steps were done:
+  # Change date to a date format
+  # create column for the year and decade from the data
+  # Clean the common name, group class to remove _ and . from the names
+  # double check there are no absences
+
+df_P_nodate <- read.csv("www/data/AZM_Pdata_CleanedForShiny.csv")
+
 df_PA <- df_P_nodate %>%
   filter(Year > 1970)
 
-
 ## Animal data from the factsheets
-sp_data <- read.csv("www/species_information.csv")
+sp_data <- read.csv("www/data/species_information.csv")
 #colnames(sp_data)[1] <- "Common_name"
 
 ## Clean the data
@@ -103,8 +110,13 @@ sf_sites <- st_read("www/data/spatial/AZM_survey_sites.gpkg") %>%
 
 
 ## detections over time
-sf_decade_1980 <- st_read("www/data/AZM_survey_decade_80.gpkg")
-sf_decade_1990 <- st_read("www/data/AZM_survey_decade_80_90.gpkg")
-sf_decade_2000 <- st_read("www/data/AZM_survey_decade_80_90_00.gpkg")
-sf_decade_2010 <- st_read("www/data/AZM_survey_decade_80_90_00_10.gpkg")
+# sf_decade_80 <- st_read("www/data/AZM_survey_decade_80.gpkg")
+# sf_decade_8090 <- st_read("www/data/AZM_survey_decade_80_90.gpkg")
+# sf_decade_809000 <- st_read("www/data/AZM_survey_decade_80_90_00.gpkg")
+# sf_decade_80900010 <- st_read("www/data/AZM_survey_decade_80_90_00_10.gpkg")
+
+sf_decade_1980 <- st_read("www/data/spatial/AZM_survey_decade_80.gpkg")
+sf_decade_1990 <- st_read("www/data/spatial/AZM_survey_decade_90.gpkg")
+sf_decade_2000 <- st_read("www/data/spatial/AZM_survey_decade_00.gpkg")
+sf_decade_2010 <- st_read("www/data/spatial/AZM_survey_decade_10.gpkg")
 
