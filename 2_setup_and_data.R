@@ -74,7 +74,9 @@ sp_data <- read.csv("www/data/species_information.csv")
 
 ## Clean the data
 sp_data <- sp_data %>%
-  mutate("Common Name URL" = paste0("<a href='",  ALA,"'>", Common_name, ", click here. </a>"))
+  mutate("ALA URL" = paste0("<a href='",  ALA,"'>", Common_name, ", click here. </a>"),
+         "Factsheet URL" = paste0("<a href='",  Factsheet,"'>", Common_name, ", click here. </a>")
+         )
 # mutate("Factsheet URL" = paste0("<a href='",  factsheet,"'>", Common_name, ", click here. </a>"))
 
 ## Data  providers

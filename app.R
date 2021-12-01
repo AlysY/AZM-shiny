@@ -130,7 +130,8 @@ ui <- fluidPage(
                       
                       ## acknowledgements
                       h3("Acknowledgements"),
-                      p(acknowledgements1),
+                      acknowledgements1,
+                      p("The full acknowledgments are available in the “More Information” tab."),
                       br(),
                       div(tags$img(src = "Logos_Extended.png", width = "90%"), style = "text-align: center;")
                       
@@ -149,7 +150,7 @@ ui <- fluidPage(
              tabPanel("What was surveyed?",
                       icon = icon("compass"),
                       img(src = 'images/banner/P5200812_Naomi Indigo.jpg', align = "left", width = '100%', height = 'auto'),
-                      div(p("Sandy Bore Indigenous Protected Area. Image credit: Naomi Indigo"), style = "font-size: 12px;"),
+                      div(p("Antara-Sandy Bore Indigenous Protected Area. Image credit: Naomi Indigo"), style = "font-size: 12px;"),
                       fluidRow(
                         column(5, survey_overview),
                         
@@ -493,43 +494,10 @@ ui <- fluidPage(
                                            br(),
                                            
                                            ##### 3.3.1 Top of page -----------------------------------------------------------------------------------------------------------------
-                                           # fluidRow(
-                                           #   
-                                           #   column(3, wellPanel(
-                                           #     # selectizeInput(inputId = "animal_species",
-                                           #     #                label = "Pick an animal",
-                                           #     #                choices =  list_sp_factsheet),
-                                           #     
-                                           #     selectizeInput(inputId = "animal_spgroup",
-                                           #                    label = "Pick a group",
-                                           #                    choices =  list_sp_types), 
-                                           #     
-                                           #     selectizeInput(inputId = "animal_species",
-                                           #                    label = "Pick an animal",
-                                           #                    choices =  list_sp_factsheet)
-                                           #     
-                                           #     
-                                           #     ),
-                                           #     br(),
-                                           #     uiOutput("animal_mainimage")
-                                           #   ),
-                                           #   
-                                           #   column(9, h1(uiOutput("animal_name")),
-                                           #          p(uiOutput("animal_nameLamguage")),
-                                           #          
-                                           #          div(helpText(uiOutput("language_names_disclaimer")), style = "font-size: 12px;"),
-                                           #          br(),
-                                           #          uiOutput("animal_description"))
-                                           # ), # close fluid row
-                                           
-                                           
+                                          
                                            fluidRow(
                                              
                                              column(4, wellPanel(
-                                               # selectizeInput(inputId = "animal_species",
-                                               #                label = "Pick an animal",
-                                               #                choices =  list_sp_factsheet),
-                                               
                                                selectizeInput(inputId = "animal_spgroup",
                                                               label = "Pick a group",
                                                               choices =  list_sp_types), 
@@ -612,7 +580,7 @@ ui <- fluidPage(
                                                                          uiOutput("animal_SDM_legend"))
                                                                 ),
                                                                 wellPanel(
-                                                                  div(p(SDM_2), style = "font-size: 12px;")
+                                                                  p(SDM_2)
                                                                 )
                                                        ), # close tab panel
                                                        
@@ -622,7 +590,7 @@ ui <- fluidPage(
                                                        
                                                        
                                                        ##### 3.3.4 Tracks and scats -----------------------------------------------------------
-                                                       tabPanel(h3("Tracks, scat and signs"), value = "signs",
+                                                       tabPanel(h3("Tracks and signs"), value = "signs",
                                                                 uiOutput("animal_signs"),
                                                                 br(),
                                                                 fluidRow(
@@ -657,11 +625,12 @@ ui <- fluidPage(
                                                        
                                                        
                                                        ##### 3.3.6 More info -----------------------------------------------------------
-                                                       tabPanel(h3("Do you want to know more?"), value = "information",
-                                                                htmlOutput("ALA_link_species"),
+                                                       tabPanel(h3("Learn more"), value = "information",
+                                                                
+                                                                htmlOutput("factsheet_link_species"),
                                                                 br(),
-                                                                htmlOutput("factsheet_link_species")
-                                                                #actionButton("download_factsheet", "Download animals factsheet")
+                                                                htmlOutput("ALA_link_species"),
+                                                                br()
                                                        ) # close tab panel
                                            ), # close tabset
                                            br(),
@@ -839,12 +808,17 @@ ui <- fluidPage(
                       br(),
                       
                       #### 5.1 Publications
-                      h3("Publications and reports"),
-                      p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
-                      #p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
-                      #p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
-                      #p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
+                      h3("Links and reports"),
+                      p(tags$a(href = "https://www.nespthreatenedspecies.edu.au/", "National Environmental Science Programme (NESP) Threatened Species Recovery (TSR) hub ")),
                       
+                      br(),
+                      #### 5.1 Publications
+                      h3("Further reading"),
+                      p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
+                      p(tags$a(href = "https://books.google.com.au/books/about/Tales_in_the_Sand.html?id=ts-MQQAACAAJ&redir_esc=y", " Moseby, K.E., Nano, T. and Southgate, R. (2009)."),"Tales in the Sand: A guide to identifying arid zone fauna using spoor and other signs. Ecological Horizons, South Australia."),
+                      p(tags$a(href = "https://books.google.com.au/books?hl=en&lr=&id=n1lHDwAAQBAJ&oi=fnd&pg=PP1&dq=Monitoring+Threatened+Species+and+Ecological+Communities&ots=WiUBiVtimB&sig=S3sEYUTaKMEcs7vjZscVIwtYdeA&redir_esc=y#v=onepage&q=Monitoring%20Threatened%20Species%20and%20Ecological%20Communities&f=false", "Legge, S., Lindenmayer, D. B., Robinson, N., Scheele, B., Southwell, D., and Wintle, B. (2018)."),"'Monitoring Threatened Species and Ecological Communities.' CSIRO Publishing: Melbourne, Australia."),
+                      p(tags$a(href = "https://doi.org/10.1111/cobi.13178", "Leiper, I., Zander, K. K., Robinson, C. J., Carwadine, J., Moggridge, B. J., and Garnett, S. T. (2018)."), "Quantifying current and potential contributions of Australian indigenous peoples to threatened species management. Conservation Biology 32, 1038-1047."),
+                     
                       br(),
                       
                       
@@ -862,7 +836,7 @@ ui <- fluidPage(
                         column(3,
                                br(),
                                img(src = 'images/portrait/P5200833_Naomi Indigo.jpg', align = "right", width = '100%', height = 'auto'),
-                               div(p("Sandy Bore Indigenous Protected Area. Image credit: Naomi Indigo"), style = "font-size: 12px;")
+                               div(p("Antara-Sandy Bore Indigenous Protected Area. Image credit: Naomi Indigo"), style = "font-size: 12px;")
                         ),
                         column(9,
                                
@@ -1268,6 +1242,13 @@ server <- function(input,output, session){
   
   # 4. Results factsheets ---------------------------------------------------------------------------------------------------------------------
   
+  # citation
+  output$how_to_cite_species  <- renderUI({
+    how_to_cite_species <- paste0("NESP Threatened Species Recovery Hub, 2021. Arid Zone Monitoring Species Profile: ", input$animal_species, ", Project 3.2.5 findings factsheet. ")
+    
+  })
+  
+  
   ## Filter the data
   animal_data <- reactive({
     data <- sp_data %>% filter(Common_name == input$animal_species)
@@ -1623,40 +1604,34 @@ server <- function(input,output, session){
   })
   
   
-  # .# download factsheet -----------------------------------------------------------------------------------
-  # output$download_factsheet <- downloadHandler(
-  #   filename = paste0("Factsheet", input$animal_species, ".pdf"),
-  #   content = function(file) {
-  #     file.copy(RV$path_factsheet, file)
-  #   }
-  # )
-  
-  
-  output$ALA_link_species <- renderUI({
-    
-    t <- sp_data %>%
-      filter(Common_name == input$animal_species) %>%
-      select("Common Name URL") %>%
-      pull()
-    
-    # t2 <- p("To learn more about the ")
-    t3 <- paste0("<p> To learn more about the ", t, "</p>")
-    HTML(t3)
-  })
+  # .# download factsheet ----------------------------------------------------------------------------------
   
   
   ## When the factsheets are uploaded, add the url to the species table
   output$factsheet_link_species <- renderUI({
     
-    # t <- sp_data %>%
-    #   filter(Common_name == input$animal_species) %>%
-    #   select("Factsheet URL") %>%
-    #   pull()
-    t <- input$animal_species
-    t3 <- paste0("<p> To see the full factsheet for the ", t, "</p>")
+    t <- sp_data %>%
+      filter(Common_name == input$animal_species) %>%
+      select("Factsheet URL") %>%
+      pull()
+    t3 <- paste0("<p> To see the full factsheet created by the Arid Zone Monitoring project for the ", t, "</p>")
     
     HTML(t3)
   })
+  
+  output$ALA_link_species <- renderUI({
+    
+    t <- sp_data %>%
+      filter(Common_name == input$animal_species) %>%
+      select("ALA URL") %>%
+      pull()
+    
+    # t2 <- p("To learn more about the ")
+    t3 <- paste0("<p> To see the Atlas of Living Australia page for the ", t, "</p>")
+    HTML(t3)
+  })
+  
+  
   
 } # close server function
 
