@@ -146,13 +146,13 @@ l <- leaflet() %>%
 
 df_result_sp <- df_P_nodate %>% 
   select(CommonName, Group_class) %>%
-  mutate(invasive = ifelse(Group_class ==  "Introduced_mammal", 1, 0)) %>%
+  #mutate(invasive = ifelse(Group_class ==  "Introduced_mammal", 1, 0)) %>%
   group_by(CommonName) %>%
   summarise(n = n(),
-            invasive_mam = unique(invasive),
+           # invasive_mam = unique(invasive),
             Group_class = unique(Group_class)) %>%
   filter(n > 1) %>%
-  arrange(invasive_mam, desc(n))
+  arrange(desc(n)) #invasive_mam, 
 
 df_result_sp$CommonName <- factor(df_result_sp$CommonName, levels = rev(unique(df_result_sp$CommonName)))
 
@@ -173,7 +173,7 @@ g_result_sp <- ggplot() +
 g_result_place <- ggplot() +
   labs(y = "Number of detections", x = "Animal", fill = "Type of animal") +
   coord_flip() +
-  theme(text = element_text(size = 14))
+  theme(text = element_text(size = 12))
 
 
 

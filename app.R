@@ -40,10 +40,10 @@ source("6_plots_and_aesthetics.R")
 ui <- fluidPage(
   
   # Navigation bar
-  navbarPage(title = "Arid Zone Monitoring", # title for the title bar, could add the logo or symbols Arid Zone Monitoring
+  navbarPage(title = "Arid Zone Monitoring", # title for the title bar
              id = "nav", selected = NULL, collapsible = TRUE, 
-             theme = shinytheme("flatly"), # TO DO - modify the colours
-             windowTitle = "Arid Zone Monitoring",
+             theme = shinytheme("flatly"), # theme - edited using css
+             windowTitle = "Arid Zone Monitoring", # title for the website  in the internet browser
              
              tags$head(tags$style(css)),
              
@@ -51,7 +51,7 @@ ui <- fluidPage(
              tabPanel("Home",
                       icon = icon("home"),
                       img(src = 'images/banner/P5200815_Naomi Indigo.jpg', align = "left", width = '100%', height = 'auto'),
-                      div(p("Image credit: Naomi Indigo"), style = "font-size: 15px;"),
+                      div(p("APY lands. Image credit: Naomi Indigo"), style = "font-size: 12px;"),
                       
                       
                       
@@ -95,20 +95,22 @@ ui <- fluidPage(
                       fluidRow(
                         column(3,
                                img(src = 'images/landscape/_DX20096 copy.jpg', align = "left", width = '100%', height = 'auto'),
-                               div(p("Image credit: Nicholas Rakotopare"), style = "font-size: 15px;")
+                               div(p("Karajarri ranger. Image credit: Nicolas Rakotopare"), style = "font-size: 12px;")
                                
                         ),
                         column(3,
-                               img(src = 'images/landscape/DJI_0110 copy.jpg', align = "left", width = '100%', height = 'auto')
-                               #div(p("Image credit: XXX"), style = "font-size: 15px;"),
+                               img(src = 'images/landscape/DJI_0110 copy.jpg', align = "left", width = '100%', height = 'auto'),
+                               div(p("Image credit: Nicolas Rakotopare"), style = "font-size: 12px;"),
                         ),
                         column(3,
-                               img(src = 'images/landscape/SANDPLOT_2.jpg', align = "left", width = '100%', height = 'auto'),
-                               div(p("Image credit: Nicholas Rakotopare"), style = "font-size: 15px;")
+                               
+                               img(src = 'images/landscape/Arid Zone Monitoring 2_Nico.jpg', align = "left", width = '100%', height = 'auto'),
+                               div(p("Kiwirrkurra rangers. Image credit: Nicolas Rakotopare"), style = "font-size: 12px;")
+                               
                         ),
                         column(3,
                                img(src = 'images/landscape/Tracks_Credit Jaana Dielenberg copy.jpg', align = "right", width = '100%', height = 'auto'),
-                               div(p("Image credit: Jaana Dielenberg"), style = "font-size: 15px;")
+                               div(p("Image credit: Jaana Dielenberg"), style = "font-size: 12px;")
                         )
                         
                         
@@ -147,15 +149,15 @@ ui <- fluidPage(
              tabPanel("What was surveyed?",
                       icon = icon("compass"),
                       img(src = 'images/banner/P5200812_Naomi Indigo.jpg', align = "left", width = '100%', height = 'auto'),
-                      div(p("Image credit: Naomi Indigo"), style = "font-size: 15px;"),
+                      div(p("Sandy Bore Indigenous Protected Area. Image credit: Naomi Indigo"), style = "font-size: 12px;"),
                       fluidRow(
-                        column(7,survey_overview),
+                        column(5, survey_overview),
                         
-                        column(2, 
-                               actionButton("survey_report", h4("Read the full report"))),
+                        column(3, 
+                               actionButton("survey_report", h4("Read the full report (coming soon)"))),
                         
-                        column(2,
-                               actionButton("survey_report2", h4("Read the summary report"))),
+                        column(3,
+                               actionButton("survey_report2", h4("Read the summary report (coming soon)"))),
                         column(1)
                       ),
                       br(),
@@ -232,10 +234,11 @@ ui <- fluidPage(
                                   tabPanel(h3("What?"),
                                            
                                            #div(helpText(survey_effort), style = "font-size: 25px;"),
-                                           h3(strong(survey_effort)),
+                                          
                                            br(),
                                            fluidRow(
                                              column(9,
+                                                    h3(strong(survey_effort)),
                                                     h3("Survey effort and records"),
                                                     #br(),
                                                     survey_effort_1,
@@ -243,41 +246,39 @@ ui <- fluidPage(
                                                     br(),
                                                     survey_effort_2,
                                                     br(),
-                                                    survey_effort_3,
-                                                    br(),
-                                                    div(img(src = 'images/figures/Number_Of_Records.jpg', width = '80%', height = 'auto'), style = "text-align: center;"),
-                                                    div(helpText(HTML(paste0("Summary of survey effort and animal detections in the Arid Zone Monitoring National Dataset. A site is a 1 km",tags$sup("2")," location, so the number of sites shows the number of unique 1 km",tags$sup("2")," locations that have been sampled. The number of surveys tells us how many discrete surveys have taken place. It is higher that than the number of sites, because the same site can be revisited over time. The number of species detections is the sum of all the species that were observed during each survey."))), style = "text-align: center;")
+                                                    survey_effort_3
                                                     
                                              ),
                                              column(3, 
-                                                    br(),
-                                                    br(),
                                                     img(src = 'images/portrait/Karajarri Ranger Jacko points out tracks_Credit Nicholas Rakotopare.jpg', align = "left", width = '100%', height = 'auto'),
-                                                    div(p("Jacko Shovellor, Karajarri ranger. Image credit: Nicholas Rakotopare"), style = "font-size: 15px;")
+                                                    div(p("Jacko Shovellor, Karajarri ranger. Image credit: Nicolas Rakotopare"), style = "font-size: 12px;")
                                              )
                                              
                                              
                                            ),
                                            br(),
+                                           div(img(src = 'images/figures/Number_Of_Records.jpg', width = '80%', height = 'auto'), style = "text-align: center;"),
+                                           div(helpText(HTML(paste0("Summary of survey effort and animal detections in the Arid Zone Monitoring National Dataset. A site is a 1 km",tags$sup("2")," location, so the number of sites shows the number of unique 1 km",tags$sup("2")," locations that have been sampled. The number of surveys tells us how many discrete surveys have taken place. It is higher that than the number of sites, because the same site can be revisited over time. The number of species detections is the sum of all the species that were observed during each survey."))), style = "text-align: center;"),
+                                           
+                                           br(),
                                            
                                            fluidRow(
                                              column(3,
                                                     img(src = 'images/landscape/P5200838_Naomi Indigo copy.jpg', align = "left", width = '100%', height = 'auto'),
-                                                    div(p("Image credit: Naomi Indigo"), style = "font-size: 15px;")
+                                                    div(p("APY lands. Image credit: Naomi Indigo"), style = "font-size: 12px;")
                                              ),
                                              column(3,
                                                     img(src = 'images/landscape/Martu child Dakato pointing at Mankarr tracks and digging_CREDIT KJ copy.jpg', align = "left", width = '100%', height = 'auto'),
-                                                    div(p("Image credit: KJ"), style = "font-size: 15px;")
+                                                    div(p("Martu child pointing at Mankarr tracks. Image credit: KJ"), style = "font-size: 12px;")
                                              ),
                                              column(3,
-                                                    
-                                                    img(src = 'images/landscape/DX20164.jpg', align = "left", width = '100%', height = 'auto'),
-                                                    div(p("Image credit: Nicholas Rakotopare"), style = "font-size: 15px;")
+                                                    img(src = 'images/landscape/Punmu Rangers Recording Data_CREDIT KJ.jpg', align = "right", width = '100%', height = 'auto'),
+                                                    div(p("Punmu Rangers. Image credit: KJ"), style = "font-size: 12px;")
                                                     
                                              ),
                                              column(3,
                                                     img(src = 'images/landscape/P5200777_Naomi Indigo copy.jpg', align = "left", width = '100%', height = 'auto'),
-                                                    div(p("Image credit: Naomi Indigo"), style = "font-size: 15px;")
+                                                    div(p("APY lands. Image credit: Naomi Indigo"), style = "font-size: 12px;")
                                              )
                                            ),
                                            br()
@@ -297,7 +298,7 @@ ui <- fluidPage(
                                              ),
                                              column(3, 
                                                     img(src = 'images/landscape/P5200793_Naomi Indigo.jpg', align = "right", width = '100%', height = 'auto'),
-                                                    div(p("Image credit: Naomi Indigo"), style = "font-size: 15px;")
+                                                    div(p("Image credit: Naomi Indigo"), style = "font-size: 12px;")
                                              )
                                            ),
                                            
@@ -313,8 +314,8 @@ ui <- fluidPage(
                                                         sep = "",
                                                         value = 1980,
                                                         step = 10,
-                                                        animate = animationOptions(interval = 2000, loop = TRUE)),
-                                                      div(helpText("To play an animation, click the play button on the right of this box under 2010."), style = "font-size: 15px;")
+                                                        animate = animationOptions(interval = 2500, loop = TRUE)),
+                                                      div(helpText("To play an animation, click the play button on the right of this box under 2010."), style = "font-size: 12px;")
                                                       
                                                     ) # close well panel
                                              ),
@@ -323,6 +324,32 @@ ui <- fluidPage(
                                                     helpText("Location of sites in the Arid Zone Monitoring National Dataset by decade from 1980s. The number of unique sites sampled each decade is 1982-1989 = 87, 1990-1999 = 847, 2000-2009 = 3517, 2010-2021= 4387. Note that 418 records were submitted without date meta-data and thus were omitted. 42 records from 2020 are included in 2010-2020 survey count.")
                                              )
                                            ),
+                                           br(),
+                                           
+                                           fluidRow(
+                                             column(3,
+                                                    img(src = 'images/landscape/SANDPLOT_2.jpg', align = "left", width = '100%', height = 'auto'),
+                                                    div(p("Image credit: Nicolas Rakotopare"), style = "font-size: 12px;")
+                                             ),
+                                             column(3,
+                                                    
+                                                    img(src = 'images/landscape/Ngurrara recording data_Hamsini Biljani copy.jpg', align = "left", width = '100%', height = 'auto'),
+                                                    div(p("Ngurrara rangers. Image credit: Hamsini Biljani"), style = "font-size: 12px;")
+                                                    # img(src = 'images/landscape/Arid Zone Monitoring 2_Nico.jpg', align = "left", width = '100%', height = 'auto'),
+                                                    # div(p("Image credit: Nicolas Rakotopare"), style = "font-size: 12px;")
+                                             ),
+                                             column(3,
+                                                    
+                                                    img(src = 'images/landscape/P1100315 copy.jpg', align = "left", width = '100%', height = 'auto'),
+                                                    div(p("Image credit: Jaana Dielenberg"), style = "font-size: 12px;")
+                                                    
+                                             ),
+                                             column(3,
+                                                    img(src = 'images/landscape/Arid Zone Monitoring 3_Nico.jpg', align = "left", width = '100%', height = 'auto'),
+                                                    div(p("Image credit: Nicolas Rakotopare"), style = "font-size: 12px;")
+                                             )
+                                           ),
+                                           br(),
                                            br()
                                   ),
                                   
@@ -337,7 +364,7 @@ ui <- fluidPage(
                                              ),
                                              column(3, 
                                                     img(src = 'images/landscape/IMG_5205_Tracks-game_SarahLegge.jpg', align = "right", width = '100%', height = 'auto'),
-                                                    div(p("Umuwa, APY Lands, May 2021. Image credit: Sarah Legge"), style = "font-size: 15px;")
+                                                    div(p("Umuwa, APY Lands, May 2021. Image credit: Sarah Legge"), style = "font-size: 12px;")
                                              )
                                            ),
                                            fluidRow(
@@ -380,17 +407,17 @@ ui <- fluidPage(
                       icon = icon("paw"),
                       
                       img(src = 'images/banner/IMG_5230_Traking near Umuwa.jpg', align = "left", width = '100%', height = 'auto'),
-                      div(p("Image credit: Naomi Indigo"), style = "font-size: 15px;"),
+                      div(p("Tracking near Umuwa. Image credit: Naomi Indigo"), style = "font-size: 12px;"),
                       
                       tabsetPanel(id = "tab_results",
                                   
                                   
-                                  #### 3.1 Species list by place ------------------------------------------------------------------------------------------------
+                                  #### 3.1 Search by place ------------------------------------------------------------------------------------------------
                                   
                                   tabPanel(h3("Search by a place"), value = "result_place",
                                            
                                            
-                                           h1(uiOutput("resultPlace_title")),
+                                           h3(strong(uiOutput("resultPlace_title"))),
                                            uiOutput("resultPlace_subtitle"),
                                            fluidRow(
                                              column(6, 
@@ -405,14 +432,14 @@ ui <- fluidPage(
                                                     
                                                     h3(uiOutput("resultPlace_plottitle")),
                                                     
-                                                    plotOutput("resultPlace_hist", height = 850)
+                                                    plotOutput("resultPlace_hist", height = 800)
                                              )
                                              
                                            ),
                                            br()
                                   ),
                                   
-                                  #### 3.2 Animals records ------------------------------------------------------------------------------------------------
+                                  #### 3.2 Animals records of detections ------------------------------------------------------------------------------------------------
                                   tabPanel(h3("Animal records"), value = "result_all",
                                            
                                            br(),
@@ -460,29 +487,73 @@ ui <- fluidPage(
                                   ), # close tab panel
                                   
                                   
-                                  #### 3.3 Animals with more inforation ------------------------------------------------------------------------------------------------
+                                  #### 3.3 Factsheets ------------------------------------------------------------------------------------------------
                                   tabPanel(h3("Animal factsheets"), value = "animals",
                                            
                                            br(),
                                            
                                            ##### 3.3.1 Top of page -----------------------------------------------------------------------------------------------------------------
+                                           # fluidRow(
+                                           #   
+                                           #   column(3, wellPanel(
+                                           #     # selectizeInput(inputId = "animal_species",
+                                           #     #                label = "Pick an animal",
+                                           #     #                choices =  list_sp_factsheet),
+                                           #     
+                                           #     selectizeInput(inputId = "animal_spgroup",
+                                           #                    label = "Pick a group",
+                                           #                    choices =  list_sp_types), 
+                                           #     
+                                           #     selectizeInput(inputId = "animal_species",
+                                           #                    label = "Pick an animal",
+                                           #                    choices =  list_sp_factsheet)
+                                           #     
+                                           #     
+                                           #     ),
+                                           #     br(),
+                                           #     uiOutput("animal_mainimage")
+                                           #   ),
+                                           #   
+                                           #   column(9, h1(uiOutput("animal_name")),
+                                           #          p(uiOutput("animal_nameLamguage")),
+                                           #          
+                                           #          div(helpText(uiOutput("language_names_disclaimer")), style = "font-size: 12px;"),
+                                           #          br(),
+                                           #          uiOutput("animal_description"))
+                                           # ), # close fluid row
+                                           
+                                           
                                            fluidRow(
                                              
-                                             column(3, wellPanel(
+                                             column(4, wellPanel(
+                                               # selectizeInput(inputId = "animal_species",
+                                               #                label = "Pick an animal",
+                                               #                choices =  list_sp_factsheet),
+                                               
+                                               selectizeInput(inputId = "animal_spgroup",
+                                                              label = "Pick a group",
+                                                              choices =  list_sp_types), 
+                                               
                                                selectizeInput(inputId = "animal_species",
                                                               label = "Pick an animal",
-                                                              choices =  list_sp_factsheet)),
-                                               br(),
-                                               uiOutput("animal_mainimage")
+                                                              choices =  list_sp_factsheet)
+                                               
+                                               
+                                             ),
+                                             #uiOutput("animal_mainimage")
                                              ),
                                              
-                                             column(9, h1(uiOutput("animal_name")),
-                                                    p(uiOutput("animal_nameLamguage")),
-                                                    
-                                                    div(helpText(uiOutput("language_names_disclaimer")), style = "font-size: 15px;"),
-                                                    br(),
-                                                    uiOutput("animal_description"))
+                                             column(8,
+                                                    uiOutput("animal_mainimage")
+                                                    )
                                            ), # close fluid row
+                                           
+                                           h1(uiOutput("animal_name"), style = "margin-top: 0px;"), ## HEERE-
+                                           p(uiOutput("animal_nameLamguage")),
+                                           
+                                           div(helpText(uiOutput("language_names_disclaimer")), style = "font-size: 12px;"),
+                                           br(),
+                                           uiOutput("animal_description"),
                                            
                                            br(),
                                            
@@ -541,7 +612,7 @@ ui <- fluidPage(
                                                                          uiOutput("animal_SDM_legend"))
                                                                 ),
                                                                 wellPanel(
-                                                                  div(p(SDM_2), style = "font-size: 15px;")
+                                                                  div(p(SDM_2), style = "font-size: 12px;")
                                                                 )
                                                        ), # close tab panel
                                                        
@@ -615,8 +686,8 @@ ui <- fluidPage(
              tabPanel("How to monitor?",
                       icon = icon("search"),
                       
-                      img(src = 'images/banner/Banner APY 2 ha plot tracking Anpuru-19_Ellen Ryan_Colton.jpg', align = "right", width = '100%', height = 'auto'),
-                      div(p("Image credit: Ellen Ryan-Colton"), style = "font-size: 15px;"),
+                      img(src = 'images/banner/Karajarri WA_OCT 2019_ANN JONES-201_banner.jpg', align = "right", width = '100%', height = 'auto'),
+                      div(p("Karajarri. Image credit: Ann Jones"), style = "font-size: 12px;"),
                       
                       tabsetPanel(id = "tab_monitor",
                                   
@@ -636,10 +707,11 @@ ui <- fluidPage(
                                                     br(),
                                                     h3("Monitoring objectives"),
                                                     monitor_intro3,
+                                                    br()
                                              ),
                                              column(3,
                                                     img(src = 'images/landscape/Yukultji Napangati looking for tracks_Credit Jaana Dielenberg.jpg', align = "left", width = '100%', height = 'auto'),
-                                                    div(p("Image credit: Jaana Dielenberg"), style = "font-size: 15px;")
+                                                    div(p("Yukultji Napangati. Image credit: Jaana Dielenberg"), style = "font-size: 12px;")
                                              )
                                            ),
                                            
@@ -651,7 +723,7 @@ ui <- fluidPage(
                                              column(3,
                                                     br(),
                                                     img(src = 'images/portrait/Martu kids Kaylene and Dakato learning Mankarr sign watched by Marita_CREDIT KJ.jpg', align = "right", width = '100%', height = 'auto'),
-                                                    div(p("Image credit: KJ"), style = "font-size: 15px;")
+                                                    div(p("Martu kids with Marita. Image credit: KJ"), style = "font-size: 12px;")
                                              ),
                                              
                                              column(9,
@@ -690,11 +762,13 @@ ui <- fluidPage(
                                            fluidRow(
                                              
                                              column(3, br(),
-                                                    img(src = 'images/landscape/Punmu Rangers Recording Data_CREDIT KJ.jpg', align = "right", width = '100%', height = 'auto'),
-                                                    div(p("Image credit: KJ"), style = "font-size: 15px;"),
+                                                    
+                                                    img(src = 'images/landscape/DX20164.jpg', align = "left", width = '100%', height = 'auto'),
+                                                    div(p("Karajarri rangers. Image credit: Nicolas Rakotopare"), style = "font-size: 12px;"),
+                                                    
                                                     br(),
                                                     img(src = 'images/landscape/Punmu Rangers and elders at an active Mankarr burrow _CREDIT KJ.jpg', align = "right", width = '100%', height = 'auto'),
-                                                    div(p("Image credit: KJ"), style = "font-size: 15px;")
+                                                    div(p("Punmu Rangers. Image credit: KJ"), style = "font-size: 12px;")
                                                     
                                              ),
                                              column(9,
@@ -721,7 +795,7 @@ ui <- fluidPage(
                                                     
                                              ) # close column
                                            ), # close fluid row
-                                           
+                                           br(),
                                            fluidRow(
                                              column(6,
                                                     br(),
@@ -742,7 +816,9 @@ ui <- fluidPage(
                                              ) # close cloumn
                                            ), # close fluid row
                                            
-                                           monitor_datacol2
+                                           monitor_datacol2,
+                                           br(),
+                                           br()
                                   ) # close tab panel
                                   
                                   
@@ -758,17 +834,16 @@ ui <- fluidPage(
              
              ### 5. More information --------------------------------------------------------------------
              tabPanel("More Information", icon = icon("info"),
-                      img(src = 'images/banner/IMG_1716.jpg', align = "left", width = '100%', height = 'auto'),
-                      #div(p("Image credit: ???"), style = "font-size: 15px;"),
-                      
+                      img(src = 'images/banner/P1100031_banner Janna.jpg', align = "left", width = '100%', height = 'auto'),
+                      div(p("Looking for tracks near Uluru. Image credit: Jaana Dielenberg"), style = "font-size: 12px;"),
                       br(),
                       
                       #### 5.1 Publications
                       h3("Publications and reports"),
                       p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
-                      p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
-                      p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
-                      p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
+                      #p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
+                      #p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
+                      #p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
                       
                       br(),
                       
@@ -787,7 +862,7 @@ ui <- fluidPage(
                         column(3,
                                br(),
                                img(src = 'images/portrait/P5200833_Naomi Indigo.jpg', align = "right", width = '100%', height = 'auto'),
-                               div(p("Image credit: Naomi Indigo"), style = "font-size: 15px;")
+                               div(p("Sandy Bore Indigenous Protected Area. Image credit: Naomi Indigo"), style = "font-size: 12px;")
                         ),
                         column(9,
                                
@@ -795,7 +870,10 @@ ui <- fluidPage(
                                acknowledgements1,
                                br(),
                                br(),
-                               acknowledgements2)
+                               acknowledgements2,
+                               br(),
+                               br(),
+                               acknowledgements3)
                       ), # close fluidrow
                       br(),
                       br(),
@@ -1054,7 +1132,7 @@ server <- function(input,output, session){
       summarise(n = n(),
                 invasive_mam = unique(invasive),
                 Group_class = unique(Group_class)) %>%
-      arrange(invasive_mam, desc(n))
+      arrange( desc(n)) #invasive_mam,
     
     
     
@@ -1081,7 +1159,7 @@ server <- function(input,output, session){
   
   # Results - detections  -----------------------------------------------------------------------------------
   
-  # Update the list of antimicrobials
+  # Update the list of animal by the group selected
   observeEvent(input$result_spgroup, {
     
     resulting_group <- input$result_spgroup
@@ -1188,14 +1266,24 @@ server <- function(input,output, session){
   
   
   
-  # 4. Specific species page ---------------------------------------------------------------------------------------------------------------------
+  # 4. Results factsheets ---------------------------------------------------------------------------------------------------------------------
   
   ## Filter the data
   animal_data <- reactive({
     data <- sp_data %>% filter(Common_name == input$animal_species)
   })
   
-  
+  observeEvent(input$animal_spgroup, {
+    
+    l <- list_sp_factsheet[names(list_sp_factsheet) == input$animal_spgroup]
+    l2 <- unlist(l, use.names = FALSE)
+    
+    # Update inputs
+    updateSelectizeInput(session,
+                         inputId = "animal_species",
+                         label = "Pick an animal",
+                         choices = l2)
+  })
   
   
   
@@ -1235,7 +1323,8 @@ server <- function(input,output, session){
     
     # Image
     # when printing the image, need to start at the species folder
-    tags$img(src = file.path(p), width = "105%", height = "auto")
+    # tags$img(src = file.path(p), width = "105%", height = "auto")
+    tags$img(src = file.path(p), width = "auto", height = "200px")
   })
   
   ## Animals name

@@ -20,9 +20,9 @@ contact_email <- "AridZoneMonitoring@gmail.com"
 
 # Social media -----------------------------------------------------------------------------------------------------------------------------------------------
 # Share to social media URL
-website_url_clean <- "https://www.nespthreatenedspecies.edu.au/projects/arid-zone-monitoring-surveys-for-vertebrates-across-arid-and-semi-arid-zones"
+website_url_clean <- "https://aridzonemonitoring.org.au/"
 
 # Share to social media message
-website_message_clean <- "Arid Zone Monitoring project for threatened species"
+website_message_clean <- "Check out the Arid Zone Monitoring project."
 
 
