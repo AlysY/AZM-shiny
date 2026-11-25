@@ -24,7 +24,7 @@ image_permission <- "All people in the images have given permission to use their
 
 cultural_advice <- "Aboriginal and Torres Strait Islander viewers are advised that while we aim to remove images, videos and voices of people who have died, these may still be present. Please let us know if you are aware of an image that should be removed."
 
-acknowledgements1 <- "The Arid Zone Monitoring Project was funded by the Australian Government’s National Environmental Science Program through the Threatened Species Recovery Hub. The Project distils the very large collective effort of many people – Traditional Owners, Indigenous rangers, university researchers, consultants, and government staff - who live and work in Australia’s deserts. It has been a privilege for the project team to be a small part of their deep commitment to caring for Australia’s deserts."
+acknowledgements1 <- "The Arid Zone Monitoring Project was funded by the Australian Government’s National Environmental Science Programme through the Threatened Species Recovery Hub. The Project distils the very large collective effort of many people – Traditional Owners, Indigenous rangers, university researchers, consultants, and government staff - who live and work in Australia’s deserts. It has been a privilege for the project team to be a small part of their deep commitment to caring for Australia’s deserts."
 
 acknowledgements2 <- "The data collation and analysis for the Arid Zone Monitoring Project was carried out by Naomi Indigo, Anja Skroblin, Darren Southwell, Tida Nou, Liam Grimmett, David Wilkinson, Diego Brizuela-Torres, Taleah Watego, Katherine Moseby, Rick Southgate, and Sarah Legge. The project website, which displays and organises some of the project’s key outputs, was developed by Alys Young. The project has relied heavily on the Hub’s communications team of Steve Wilson, Mary Cryan, Nico Rakotopare and Jaana Dielenberg. Nelika Hughes advised us on data management options; the EcoCommons team and Martin Westgate helped us get the website off the ground; Chris Fenwick and Heather Christensen were invaluable project management support. We thank the Hub’s Indigenous Reference Group for their guidance (Cissy Gore-Birch, Stephen van Leeuwen, Oli Costello, Teagan Goolmeer)."
 
@@ -35,7 +35,7 @@ intro_1 <- 'The Arid Zone Monitoring project supports people and groups who are 
 
 intro_1.1 <- "•	Gather existing track and sign data into a single dataset."
 
-intro_1.2 <- "•	Use this dataset could be used to map the distributions of desert species and look for trends in abundance over time."
+intro_1.2 <- "•	Map the distributions of desert species and look for trends in abundance over time."
 
 intro_1.3 <- "•	Provide guidance to support future sampling design and data collection."
 
@@ -44,11 +44,11 @@ intro_1.4 <- "•	Showcase the work being carried out in the deserts, especially
 intro_1.5 <- "•	Lay the groundwork for creating ongoing, national-scale monitoring for desert wildlife."
 
 # Who is the AZM project?
-intro_2 <- 'The project is a collaboration between the Australian Government’s National Environmental Science Program (through the Threatened Species Recovery Hub) and over 40 partners. The partners are Indigenous ranger groups and Indigenous organisations, NGOs and NRM groups, government agencies and institutions, and individual researchers and consultants.'
+intro_2 <- 'The project is a collaboration between the Australian Government’s National Environmental Science Programme (through the Threatened Species Recovery Hub) and over 40 partners. The partners are Indigenous ranger groups and Indigenous organisations, NGOs and NRM groups, government agencies and institutions, and individual researchers and consultants.'
 
 
 # Why do we need the Arid Zone Monitoring project?
-intro_3.1 <- "Monitoring animal populations in Australia’s sandy deserts is challenging. Many animal populations are at low density, have patchy distributions, and boom-bust population cycles, making it hard to understand patterns when working at single site, or for short periods of time."
+intro_3.1 <- "Monitoring animal populations in Australia’s sandy deserts is challenging. Many animal populations are at low density, have patchy distributions, and boom-bust population cycles, making it hard to understand patterns when working at a single site, or for short periods of time."
 
 intro_3.2 <- "Many individuals and groups across Australia’s deserts have collected data using track-based methods (i.e. searching an area to record animal presence based on their tracks, scats, diggings, or other signs). Surveys have mainly been carried out to describe the species present in an area. Track-based surveys are also excellent opportunities for people to get out on Country, share skills and pass knowledge between generations. Some of the information from past track-based surveys had been collated, but most was still dispersed across the many groups that gathered the data, and therefore inaccessible for national-scale analyses."
 
@@ -71,7 +71,7 @@ survey_area <- "The project area includes all of Australia’s sandy desert bior
 survey_dataset <- "The Arid Zone Monitoring National Dataset is a collation of 69 datasets, shared by 37 different groups and individuals who have carried out track-based surveys across Australia."
 
 # data providers
-# survey_providers <- "Data were collected by Indigenous rangers, government scientists, university scientists, NGOs and consultants. The data were collected to meet a range of objectives, from surveys focussed on single species to general fauna surveys. Many datasets arose from programs that aimed to provide opportunities for on-country trips and knowledge exchange."
+# survey_providers <- "Data were collected by Indigenous rangers, government scientists, university scientists, NGOs and consultants. The data were collected to meet a range of objectives, from surveys focussed on single species to general fauna surveys. Many datasets arose from programmes that aimed to provide opportunities for on-country trips and knowledge exchange."
 
 
 
@@ -85,7 +85,7 @@ survey_effort_1 <- "Records of animals were made using several different survey 
 
 survey_effort_2 <- "Transect surveys, where observers search for tracks along a linear path, were also common. Timed searches are when observers look for animal signs for a set length of time. This includes searches carried out on foot or by a slow-moving vehicle. Some records were ‘incidental’, where observers noticed and recorded the track, scat or digging, but they were not carrying out a formal survey."
 
-survey_effort_3 <- "In some surveys, observers recorded which species were absent, as well as those that were present. This absence information can be very useful is some types of analyses. Information on absence data is summarised in the Arid Zone Monitoring Project report."
+survey_effort_3 <- "In some surveys, observers recorded which species were absent, as well as those that were present. This absence information can be very useful in some types of analyses. Information on absence data is summarised in the Arid Zone Monitoring Project report."
 
 
 
@@ -97,13 +97,13 @@ survey_jur <- "South Australian partners shared data from the greatest number of
 
 survey_when <- "Track-based surveys were pioneered by ecologists working with Traditional Owners in the 1980s, but the method spread, and is now used by many different groups working in the deserts."
 
-survey_when1 <- "The Arid Zone Monitoring National Dataset contains records for the period 1982 to 2021, although there are few records in the first decade or so. Early data were mostly from South Australia. Data began to accumulate in Western Australia and Northern Territory starting from early 2000s."
+survey_when1 <- "The Arid Zone Monitoring National Dataset contains records for the period 1982 to 2021, although there are few records in the first decade or so. Early data were mostly from South Australia. Data began to accumulate in Western Australia and Northern Territory starting from the early 2000s."
 
 
 ## TAB 4 - WHO
 survey_partner <- "Track-based surveys were pioneered by ecologists working with Traditional Owners in the 1980s, but the method spread, and is now used by many different groups working in the deserts."
 
-survey_partner1 <- "Over time the types of organisations or individuals carrying out surveys has shifted. The data shared by the South Australian government is based on work by several ecologists, consultants and others who developed the 2 ha plot method in the 1980s. More recently, Indigenous groups, NGOs and NRM groups began using the method more widely."
+survey_partner1 <- "Over time the types of organisations or individuals carrying out surveys have shifted. The data shared by the South Australian government is based on work by several ecologists, consultants and others who developed the 2 ha plot method in the 1980s. More recently, Indigenous groups, NGOs and NRM groups began using the method more widely."
 
 
 
@@ -113,7 +113,7 @@ animal_results_1 <- "The AZM National Dataset contains records of 76 species: 27
 
 animal_results_2 <- "The dataset also contains records where sign was not attributed to a species, but was identified to genus level (3 mammal and 5 reptile genera), or a higher group level (3 mammal groups, 1 bird group, 5 reptile groups, 1 frog group and 1 invertebrate group)."
 
-animal_results_3 <- "The maps summarise the detections of this species in the AZM dataset. Each blue dot shows a survey site where the species was records; the grey dots show all the other sites that were surveyed, but where the species was not recorded. These records were made by Indigenous Ranger groups, land councils, NGOs, government agencies and university researchers. It is possible that extra surveys have been carried out that have not yet been shared. If you see ‘gaps’ in the maps that you could fill by sharing your data, let us know."
+animal_results_3 <- "The maps summarise the detections of this species in the AZM dataset. Each blue dot shows a survey site where the species was recorded; the grey dots show all the other sites that were surveyed, but where the species was not recorded. These records were made by Indigenous Ranger groups, land councils, NGOs, government agencies and university researchers. It is possible that extra surveys have been carried out that have not yet been shared. If you see ‘gaps’ in the maps that you could fill by sharing your data, let us know."
 
 #animal_results_4 <- "The maps summarise the detections of this species in the AZM dataset. Each blue dot shows a survey site where the species was records; the grey dots show all the other sites that were surveyed, but where the species was not recorded. These records were made by Indigenous Ranger groups, land councils, NGOs, government agencies and university researchers. The overall distribution of the species is shown in the map background."
 
@@ -151,15 +151,15 @@ monitor_intro3 <- "Like all surveys, track-based surveys need to be designed car
 
 monitor_table <- "The table below shows some examples of monitoring objectives and the different needs required for where to put sites, and whether you need to revisit them over time to achieve the monitoring objective:"
 
-## Overall rules of thumb for monitoring programs at local, regional and national scales
+## Overall rules of thumb for monitoring programmes at local, regional and national scales
 
 monitor_rules1 <- "Try to keep sites more than 4-5 km apart from each other, so that your samples are ‘independent’, and it’s unlikely that the same individual animals are leaving prints across the sites."
 
-# For a monitoring program at the property or IPA scale
-monitor_rules2 <- "sampling 30 sites (from a set of about 60 sites) each year, split across the main habitat types, should pick up changes in the detections rates or occupancy of most species. If you increase the number of sites sampled in a year, you will have a greater chance of picking up change, especially if the change is small. If there are rare species that are targets for the survey, you may need extra sites clustered in the area where that species occurs – your team may use exiting species distribution maps, AZM maps or local knowledge to find where this is in the survey area."
+# For a monitoring programme at the property or IPA scale
+monitor_rules2 <- "sampling 30 sites (from a set of about 60 sites) each year, split across the main habitat types, should pick up changes in the detection rates or occupancy of most species. If you increase the number of sites sampled in a year, you will have a greater chance of picking up change, especially if the change is small. If there are rare species that are targets for the survey, you may need extra sites clustered in the area where that species occurs – your team may use existing species distribution maps, AZM maps or local knowledge to find where this is in the survey area."
 
-# For a regional or national monitoring program
-monitor_rules3 <- "about 200 sites are needed to have a high chance at detecting moderate (~30%) declines for most species (based on analysis of South Australian data). These sites could be spread across several IPAs, national parks, and other properties, so that any one team is sampling only part of the whole set of sites."
+# For a regional or national monitoring programme
+monitor_rules3 <- "about 200 sites are needed to have a high chance of detecting moderate (~30%) declines for most species (based on analysis of South Australian data). These sites could be spread across several IPAs, national parks, and other properties, so that any one team is sampling only part of the whole set of sites."
 
 monitor_tip <- "How easily a sign is detected varies greatly between species and the age of the sign, but is influenced most by the tracking conditions. It is important to set up sites in places where the tracking surface is good, and to collect data when weather and light conditions are best. Surveys should not be conducted immediately after rain or disturbance events that may remove or obscure tracks or sign. Detectability is also affected by the experience of the observer, so training in track and sign recognition is important."
 
@@ -176,10 +176,7 @@ monitor_road1 <- "If the 2 ha plot is near a track, keep the search area off the
 
 monitor_datacol1 <- "Different methods (2 ha plot vs transect) can be accommodated in analyses that collate data from many people and groups, but differences in data recording fields, and inconsistencies in data quality, can be a real problem. Streamlining data collection to a core set of fields that are recorded consistently makes it much easier to combine track-based data from many different people and groups. To that end, the Arid Zone Monitoring project worked with several tracking experts to design a standard data recording sheet that could be used nationally, regardless of the track-based survey method used."
 
-monitor_datacol2 <- "For inquiries or information about where to send datasheets and photos, please contact Arid Zone Monitoring by emailing AridZoneMonitoring@gmail.com ."
-
-monitor_tip <- "How easily a sign is detected varies between species and the age of the sign, and also with the tracking conditions. It is important to set up sites in places where the tracking surface is good, and to collect data when weather and light conditions are best. Don’t survey immediately after rain or strong winds that may remove or obscure tracks or sign. How easily signs are detected is also affected by the experience of the observer, so training in track and sign recognition (learning from experienced trackers) is very important. Walk into the sun as tracks are easier to see. Only record sign when you are sure of the identification, as recording the presence of species incorrectly is a much bigger problem than missing some records."
-
+monitor_datacol2 <- "For enquiries or information about where to send datasheets and photos, please contact Arid Zone Monitoring by emailing AridZoneMonitoring@gmail.com ."
 
 # # Where to survey?
 # monitor_where1 <- " If the monitoring objective is to survey or monitor trends in a common and widespread species, then put sites across a wide area. To survey or monitor trends in species that are less common or have small distributions, concentrate some sites within the range of this species, but make sure some other sites are also located outside the range. "
@@ -192,7 +189,7 @@ monitor_tip <- "How easily a sign is detected varies between species and the age
 # # To detect trends over time
 # monitor_quantity1 <- " This depends on how common species are, and how sensitive you want the monitoring program to be. More sites will be needed to detect smaller declines or to detect declines in rarer species, while fewer sites will be needed to detect larger declines, or declines in more common species."
 # 
-# # For a regional or national monitoring program
+# # For a regional or national monitoring programme
 # monitor_quantity2 <- "About 200 sites are needed overall to have a high chance at detecting moderate (~30%) declines for most species. These sites could be spread across several IPAs, national parks, and other properties, so that any one group doesn’t need to do all the work."
 # 
 # # For a monitoring change at the property or IPA scale
@@ -220,6 +217,6 @@ monitor_tip <- "How easily a sign is detected varies between species and the age
 # 
 # monitor_datasheet3 <- "For inquiries or information about where to send datasheets and photos, please contact Arid Zone Monitoring by emailing trackingaustralia@gmail.com or the Atlas of Living Australia. Your data can then be added to the national database on arid zone fauna."
 # 
-# monitor_datasheet4 <- " We worked with tracking experts to develop a standard data recording template for track-based surveys, with advice on data collection, that can be used anywhere across Australia. We used 2 ha sand plots and other standardised sampling types, as well as incidental observations. This report may support the development of coordinated regional and national monitoring programs on your country. "
+# monitor_datasheet4 <- " We worked with tracking experts to develop a standard data recording template for track-based surveys, with advice on data collection, that can be used anywhere across Australia. We used 2 ha sand plots and other standardised sampling types, as well as incidental observations. This report may support the development of coordinated regional and national monitoring programmes on your country. "
 # 
 

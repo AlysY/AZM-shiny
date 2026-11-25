@@ -40,7 +40,9 @@ source("6_plots_and_aesthetics.R")
 ui <- fluidPage(
   
   # Navigation bar
-  navbarPage(title = "Arid Zone Monitoring", # title for the title bar
+  navbarPage(#title = "Arid Zone Monitoring", # title for the title bar
+             
+             title = actionLink("page_title", "Arid Zone Monitoring"),
              id = "nav", selected = NULL, collapsible = TRUE, 
              theme = shinytheme("flatly"), # theme - edited using css
              windowTitle = "Arid Zone Monitoring", # title for the website  in the internet browser
@@ -100,7 +102,7 @@ ui <- fluidPage(
                         ),
                         column(3,
                                img(src = 'images/landscape/DJI_0110 copy.jpg', align = "left", width = '100%', height = 'auto'),
-                               div(p("Image credit: Nicolas Rakotopare"), style = "font-size: 12px;"),
+                               div(p("Image credit: Nicolas Rakotopare"), style = "font-size: 12px;")
                         ),
                         column(3,
                                
@@ -131,9 +133,9 @@ ui <- fluidPage(
                       ## acknowledgements
                       h3("Acknowledgements"),
                       acknowledgements1,
-                      p("The full acknowledgments are available in the “More Information” tab."),
+                      p("The full acknowledgements are available in the “More Information” tab."),
                       br(),
-                      div(tags$img(src = "Logos_Extended.png", width = "90%"), style = "text-align: center;")
+                      div(tags$img(src = "Logos_Extended.jpg", width = "90%"), style = "text-align: center;")
                       
              ), # close tabpanel
              
@@ -152,13 +154,19 @@ ui <- fluidPage(
                       img(src = 'images/banner/P5200812_Naomi Indigo.jpg', align = "left", width = '100%', height = 'auto'),
                       div(p("Antara-Sandy Bore Indigenous Protected Area. Image credit: Naomi Indigo"), style = "font-size: 12px;"),
                       fluidRow(
-                        column(5, survey_overview),
+                        column(7, survey_overview),
                         
-                        column(3, 
-                               actionButton("survey_report", h4("Read the full report (coming soon)"))),
+                        column(2, 
+                               #actionButton("survey_report", h4("Read the full report (coming soon)"))
+                               actionButton(inputId = 'survey_report', label = h4("Read the full report"),  onclick ="window.open('https://www.nespthreatenedspecies.edu.au/publications-and-tools/arid-zone-monitoring-project-report', '_blank')")
+                               
+                               ),
                         
-                        column(3,
-                               actionButton("survey_report2", h4("Read the summary report (coming soon)"))),
+                        column(2,
+                               #actionButton("survey_report2", h4("Read the summary report (coming soon)"))
+                               actionButton(inputId = 'survey_sumreport', label = h4("Read the summary report"),  onclick ="window.open('https://www.nespthreatenedspecies.edu.au/publications-and-tools/arid-zone-monitoring-project-summary', '_blank')")
+                        
+                               ),
                         column(1)
                       ),
                       br(),
@@ -173,14 +181,22 @@ ui <- fluidPage(
                                   
                                   tabPanel(h3("Where?"),
                                            
-                                           h3(strong(HTML(survey_where_summary))),
                                            
-                                           br(),
-                                           #### Text
-                                           h3("Project area"),
-                                           survey_area,
-                                           br(),
-                                           br(),
+                                           fluidRow(
+                                             column(9, 
+                                                    h3(strong(HTML(survey_where_summary))),
+                                                    br(),
+                                                    
+                                                    h3("Project area"),
+                                                    survey_area
+                                             ),
+                                             column(3, 
+                                                    img(src = 'images/portrait/Gary Njamme, Jermason Galova, Clifford Sunfly.jpg', align = "right", width = '100%', height = 'auto'),
+                                                    div(p("Ngururrpa IPA rangers"), style = "font-size: 12px;")
+                                             )
+                                           ),
+                                           
+                                          
                                            
                                            h3("Bringing the data together"),
                                            survey_dataset,
@@ -224,7 +240,7 @@ ui <- fluidPage(
                                              ),
                                              column(4,
                                                     plotOutput("NumberOfSpeciesDetections",  width = '90%'), 
-                                                    div(helpText("Number of species detections in the Arid Zone Monitoring National Dataset, by jurisdiction. This is sum of all the species that were observed during each survey."), style = "text-align: center;")
+                                                    div(helpText("Number of species detections in the Arid Zone Monitoring National Dataset, by jurisdiction. This is the sum of all the species that were observed during each survey."), style = "text-align: center;")
                                              ) # close fluid row
                                            )
                                            
@@ -259,7 +275,7 @@ ui <- fluidPage(
                                            ),
                                            br(),
                                            div(img(src = 'images/figures/Number_Of_Records.jpg', width = '80%', height = 'auto'), style = "text-align: center;"),
-                                           div(helpText(HTML(paste0("Summary of survey effort and animal detections in the Arid Zone Monitoring National Dataset. A site is a 1 km",tags$sup("2")," location, so the number of sites shows the number of unique 1 km",tags$sup("2")," locations that have been sampled. The number of surveys tells us how many discrete surveys have taken place. It is higher that than the number of sites, because the same site can be revisited over time. The number of species detections is the sum of all the species that were observed during each survey."))), style = "text-align: center;"),
+                                           div(helpText(HTML(paste0("Summary of survey effort and animal detections in the Arid Zone Monitoring National Dataset. A site is a 1 km",tags$sup("2")," location, so the number of sites shows the number of unique 1 km",tags$sup("2")," locations that have been sampled. The number of surveys tells us how many discrete surveys have taken place. It is higher than the number of sites, because the same site can be revisited over time. The number of species detections is the sum of all the species that were observed during each survey."))), style = "text-align: center;"),
                                            
                                            br(),
                                            
@@ -322,7 +338,7 @@ ui <- fluidPage(
                                              ),
                                              column(9,
                                                     leafletOutput("sur_map_decade", height = 500),
-                                                    helpText("Location of sites in the Arid Zone Monitoring National Dataset by decade from 1980s. The number of unique sites sampled each decade is 1982-1989 = 87, 1990-1999 = 847, 2000-2009 = 3517, 2010-2021= 4387. Note that 418 records were submitted without date meta-data and thus were omitted. 42 records from 2020 are included in 2010-2020 survey count.")
+                                                    helpText("Location of sites in the Arid Zone Monitoring National Dataset by decade from 1980s. The number of unique sites sampled each decade is 1982-1989 = 87, 1990-1999 = 847, 2000-2009 = 3517, 2010-2021 = 4387. Note that 418 records were submitted without date meta-data and thus were omitted. 42 records from 2020 are included in 2010-2020 survey count.")
                                              )
                                            ),
                                            br(),
@@ -507,8 +523,7 @@ ui <- fluidPage(
                                                               choices =  list_sp_factsheet)
                                                
                                                
-                                             ),
-                                             #uiOutput("animal_mainimage")
+                                             )
                                              ),
                                              
                                              column(8,
@@ -610,7 +625,7 @@ ui <- fluidPage(
                                                        
                                                        
                                                        ##### 3.3.5 Similar animals -----------------------------------------------------------
-                                                       tabPanel(h3("Similar  animals"), value = "similar",
+                                                       tabPanel(h3("Similar animals"), value = "similar",
                                                                 
                                                                 uiOutput("animal_similaranimals_text"),
                                                                 
@@ -624,7 +639,7 @@ ui <- fluidPage(
                                                        
                                                        
                                                        
-                                                       ##### 3.3.6 More info -----------------------------------------------------------
+                                                       ##### 3.3.6 More information -----------------------------------------------------------
                                                        tabPanel(h3("Learn more"), value = "information",
                                                                 
                                                                 htmlOutput("factsheet_link_species"),
@@ -661,7 +676,7 @@ ui <- fluidPage(
                       tabsetPanel(id = "tab_monitor",
                                   
                                   #### 4.1 Designing track-based surveys  ----------------------------------------------------------------------------------------------------
-                                  tabPanel(h3("Designing tracked-based surveys"),
+                                  tabPanel(h3("Designing track-based surveys"),
                                            value = "monitor_method",
                                            #helpText(monitor_overview),
                                            
@@ -744,12 +759,12 @@ ui <- fluidPage(
                                                     h3("There are different ways of collecting track-based data:"),
                                                     br(),
                                                     fluidRow(
-                                                      column(11, offset = 1,
+                                                      column(12,
                                                              monitor_meth1,
                                                              br(),
                                                              monitor_meth2,
                                                              br(),
-                                                             p(monitor_meth3, tags$a(href = "https://www.google.com", " E.g. click here.")), # Link to Anja's paper
+                                                             p(monitor_meth3, tags$a(href = "https://onlinelibrary.wiley.com/doi/full/10.1111/emr.12543", " E.g. by the Kanyirninpa Jukurrpa Indigenous rangers.")), # Link to Anja's paper
                                                              br()
                                                       )
                                                     ),# close fluid row
@@ -768,11 +783,10 @@ ui <- fluidPage(
                                            fluidRow(
                                              column(6,
                                                     br(),
-                                                    h3("More information on this topic: (links coming soon)"),
-                                                    p("To download the standard data recording sheet with instruction, ", tags$a(href = "https://www.google.com", "click here.")), #Link to data collection template and instructions
-                                                    p("To read the full report that details tracking experts’ perspectives on data collection template, ", tags$a(href = "https://www.google.com", "click here.")), # Anja's report?
-                                                    p("To read an example of a survey done used timed searches, ", tags$a(href = "https://doi.org/10.1111/cobi.13373", "click here.")), # Anja's paper
-                                                    p("To download the preferred data entry templates to store your data, ", tags$a(href = "https://www.google.com", "click here.")), # Link to data collection template and instructions
+                                                    h3("More information on this topic:"),
+                                                    p("To download the standard data recording sheet with instructions, ", tags$a(href = "https://www.nespthreatenedspecies.edu.au/media/15cjoilx/azm-data-recording-sheet-and-instructions.pdf", "click here.", target = "_blank")), #Link to data collection template and instructions
+                                                    p("To read the full report that details tracking experts’ perspectives on the data collection template, ", tags$a(href = "https://www.nespthreatenedspecies.edu.au/media/zcbdqsec/azm-report-on-perspectives-on-tracking-data.pdf", "click here.", target = "_blank")), # Anja's report?
+                                                    p("To download the preferred data entry templates to store your data, ", tags$a(href = "https://www.nespthreatenedspecies.edu.au/media/3xmbkgjw/azm-data_entry_templates.xlsx", "click here.", target = "_blank")), # Link to data collection template and instructions
                                                     br()
                                                     
                                              ),
@@ -807,12 +821,61 @@ ui <- fluidPage(
                       div(p("Looking for tracks near Uluru. Image credit: Jaana Dielenberg"), style = "font-size: 12px;"),
                       br(),
                       
-                      #### 5.1 Publications
-                      h3("Links and reports"),
-                      p(tags$a(href = "https://www.nespthreatenedspecies.edu.au/", "National Environmental Science Programme (NESP) Threatened Species Recovery (TSR) hub ")),
+                      ## tagged text
+                      # p(tags$a(href = "hyperlink", "Linked text"), "Other text"),
+                      # p("Other text", tags$a(href = "hyperlink", "Linked text")),
                       
+                      
+                      #### 5.1 Reports and outputs
+                      h3("Links and reports"),
+                      p("The resources available on the", tags$a(href = "https://www.nespthreatenedspecies.edu.au/projects/arid-zone-monitoring-surveys-for-vertebrates-across-arid-and-semi-arid-zones", "National Environmental Science Programme (NESP) Threatened Species Recovery (TSR) hub website ", target = "_blank"), "are:"),
+                      
+                      
+                      strong("Reports:"),
+                      fluidRow(
+                        column(11, offset = 1,
+                               p("•	AZM Project Report"),
+                               p("•	AZM Project Summary"),
+                               p("•	APY Lands field trip report")
+                        )
+                      ),
                       br(),
-                      #### 5.1 Publications
+                      
+                      
+                      strong("Species Profiles:"),
+                      fluidRow(
+                        column(11, offset = 1,
+                               p("•	For 44 species or groups")
+                        )
+                      ),
+                      br(),
+                      
+                      
+                      strong("Monitoring design guidance:"),
+                      fluidRow(
+                        column(11, offset = 1,
+                               p("•	AZM Monitoring design for track-based surveys"),
+                               p("•	AZM Summary - Designing a monitoring program for South Australia"),
+                               p("•	Detailed example of how to design a regional monitoring program (coming soon)"),
+                               p("•	Detailed example of the design of a national monitoring program (coming soon)"),
+                               p("•	Detailed analysis of features that affect detectability (coming soon)")
+                        )
+                      ),
+                      br(),
+                      
+                      strong("Data collection guidance and templates:"),
+                      fluidRow(
+                        column(11, offset = 1,
+                               p("•	AZM Report on perspectives on tracking data"),
+                               p("•	AZM Data recording sheet and instructions"),
+                               p("•	AZM Data entry templates")
+                        )
+                      ),
+                      br(),
+                      
+                      
+                      
+                      #### 5.2 Publications and more infor
                       h3("Further reading"),
                       p(tags$a(href = "https://doi.org/10.1111/cobi.13373", "Skroblin, A., Carboon, T., Bidu, G., Chapman, N., Miller, M., Taylor, K., Taylor, W., Game, E.T. and Wintle, B.A., (2021)."),"Including indigenous knowledge in species distribution modeling for increased ecological insights. Conservation Biology, 35(2), 587-597."),
                       p(tags$a(href = "https://books.google.com.au/books/about/Tales_in_the_Sand.html?id=ts-MQQAACAAJ&redir_esc=y", " Moseby, K.E., Nano, T. and Southgate, R. (2009)."),"Tales in the Sand: A guide to identifying arid zone fauna using spoor and other signs. Ecological Horizons, South Australia."),
@@ -823,14 +886,14 @@ ui <- fluidPage(
                       
                       
                       
-                      #### 5.2 Contact
+                      #### 5.3 Contact
                       h3("Contact us"),
                       p(paste("For more information or enquiries, please contact", contact_name, "on", contact_email)),
                       
                       
                       
                       
-                      #### 5.3 Logos, Funding, Collaborators
+                      #### 5.4 Logos, Funding, Collaborators
                       
                       fluidRow(
                         column(3,
@@ -852,7 +915,7 @@ ui <- fluidPage(
                       br(),
                       br(),
                       
-                      div(tags$img(src = "Logos_Extended.png", width = "90%"), style = "text-align: center;")
+                      div(tags$img(src = "Logos_Extended.jpg", width = "90%"), style = "text-align: center;")
              ),
              
              navbarMenu(("Share"),
@@ -884,6 +947,9 @@ ui <- fluidPage(
 
 server <- function(input,output, session){
   
+  observeEvent(input$page_title, {
+    updateNavbarPage(session, "nav", "Home")
+  })
   
   # Data --------------------------------------------------------------------
   # sur_df <- reactive({
@@ -1518,7 +1584,7 @@ server <- function(input,output, session){
     
     if (length(files) == 0 ) {
       tags$img(src = "blank.png", width = "20%")
-    } else if (length(files) > 1) {
+    } else if (length(files) >= 1) {
       tags$img(src = file.path(p), width = "50%")
     }
     
